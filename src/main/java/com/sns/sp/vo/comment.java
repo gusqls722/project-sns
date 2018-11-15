@@ -4,12 +4,19 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("comment")
 public class comment {
-
+	private Integer commentno;
 	private Integer boardno;
 	private Integer userno;
 	private String commenttext;
 	private Integer commentlike;
 	private String commentcredat;  // date
+	
+	public Integer getCommentno() {
+		return commentno;
+	}
+	public void setCommentno(Integer commentno) {
+		this.commentno = commentno;
+	}
 	public Integer getBoardno() {
 		return boardno;
 	}
@@ -42,8 +49,9 @@ public class comment {
 	}
 	@Override
 	public String toString() {
-		return "comment [boardno=" + boardno + ", userno=" + userno + ", commenttext=" + commenttext + ", commentlike="
-				+ commentlike + ", commentcredat=" + commentcredat + "]";
+		return "comment [commentno=" + commentno + ", boardno=" + boardno + ", userno=" + userno + ", commenttext="
+				+ commenttext + ", commentlike=" + commentlike + ", commentcredat=" + commentcredat + "]";
 	}
+	
 	
 }

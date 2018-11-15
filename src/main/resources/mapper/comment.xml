@@ -7,4 +7,22 @@
 		select * from comment
 	</select>
 
+	<insert id="insertCOMMENT" parameterType="comment">
+		insert into comment(commentno,boardno, userno, commenttext, commentlike, commentcredat)
+		values(#{boardno},#{userno},#{commenttext},#{commentlike},#{commentcredat})
+	</insert>
+	
+	<update id="updateCOMMENT" parameterType="comment">
+		update comment 
+		<set>
+			<if test="commenttext!=null">commenttext=#{commenttext},</if>
+			<if test="commentlike!=null">commentlike=#{commentlike},</if>
+			<if test="commentcredat!=null">commentcredat=#{commentcredat}</if>
+		</set>
+		where commentno=#{commentno}
+	</update>
+	
+	<delete id="deleteCOMMENT" parameterType="int">
+		delete from comment where boardno=#{boardno} and commentno=#{commentno}
+	</delete>
 </mapper>
