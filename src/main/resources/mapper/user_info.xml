@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sns.sp.USERINFO">
+
+	<select id="selectUSERINFOLIST" resultType="userInfo">
+		select * from user_info;
+	</select>
+	
+	<select id="selectUSERINFOONE" resultType="userInfo" parameterType="int">
+		select *from user_info where userno=#{userno}
+	</select>
+	
+	<insert id="insertUSERINFO" parameterType="userInfo">
+		insert into user_info(userid,userpwd,username,useremail,userbirth,usergender)
+		values(#{userid},#{userpwd},#{username},#{useremail},#{userbirth},#{usergender})
+	</insert>
+	
+	<update id="updateUSERINFO" parameterType="userInfo">
+		update user_info
+		<set>
+			<if test="userid!=null">userid=#{userid},</if>
+			<if test="userpwd!=null">userpwd=#{userpwd},</if>
+			<if test="username!=null">username=#{username},</if>
+			<if test="useremail!=null">useremail=#{useremail},</if>
+			<if test="userbirth!=null">userbirth=#{userbirth},</if>
+			<if test="usergender!=null">usergender=#{usergender},</if>
+		</set>
+		where userno=#{userno}
+	</update>
+	
+	<delete id="deleteUSERINFO" parameterType="int">
+		delete from user_info where userno=#{userno}
+	</delete>
+
+</mapper>

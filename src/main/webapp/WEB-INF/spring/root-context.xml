@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<context:property-placeholder location="classpath:conf/db.properties"/>
+	
+	<bean id="hc" class="com.zaxxer.hikari.HikariConfig">
+		<property name="jdbcUrl" value="${db.url}"/>
+		<property name="username" value="${db.username}"/>
+		<property name="password" value="${db.password}"/>
+		<property name="autoCommit" value="${db.autoCommit}"/>
+		<property name="driverClassName" value="${db.driverclassName}"/>
+	</bean>
+	
+	<bean id="ds" class="com.zaxxer.hikari.HikariDataSource">
+		<constructor-arg ref="hc"/>
+	</bean>
+	
+
+	<bean id="dsp" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+		<constructor-arg ref="ds"/>
+		<property name="logFormatter">
+			<bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+				<property name="loggingType" value="MULTI_LINE"/>
+				<property name="sqlPrefix" value="SQL : "/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id ="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dsp"/>
+		<property name="typeAliasesPackage" value="com.sns.sp.vo"/>
+		<property name="mapperLocations" value="classpath:mapper/*.xml"/>
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+	
+	<context:component-scan base-package="com.sns.sp.dao" />
+	<context:component-scan base-package="com.sns.sp.service" />
+</beans>

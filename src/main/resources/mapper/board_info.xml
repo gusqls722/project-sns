@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sns.sp.BOARDINFO">
+	<select id="BOARDINFOLIST" resultType="boardInfo">
+		select * from board_info;
+	</select>
+	
+	<select id="BOARDINFOONE" resultType="boardInfo" parameterType="int">
+		select * from board_info where boardno=#{boardno}
+	</select>
+	
+	<insert id="insertBOARDINFO" parameterType="boardInfo">
+		insert into board_info(boardtext,boardimage,boardlike,boardcommentcount,boardvisit,boardcredat,boardmoddat,userno)
+		values(#{boardtext},#{boardimage},#{boardlike},#{boardcommentcount},#{boardvisit},#{boardcredat},#{boardmoddat},#{userno})
+	</insert>
+	
+	<update id="updateBOARDINFO" parameterType="boardInfo">
+		update board_info
+		<set>
+			<if test="boardtext!=null">boardtext=#{boardtext},</if>
+			<if test="boardimage!=null">boardimage=#{boardimage},</if>
+			<if test="boardlike!=null">boardlike=#{boardlike},</if>
+			<if test="boardcommentcount!=null">boardcommentcount=#{boardcommentcount},</if>
+			<if test="boardvisit!=null">boardvisit=#{boardvisit},</if>
+			<if test="boardcredat!=null">boardcredat=#{boardcredat},</if>
+			<if test="boardmoddat!=null">boardmoddat=#{boardmoddat},</if>
+			<if test="userno!=null">userno=#{userno},</if>
+			where boardno=#{boardno}
+		</set>
+	</update>
+	
+	<delete id="deleteBOARDINFO" parameterType="int">
+		delete from board_info where boardno=#{boardno}
+	</delete>
+</mapper>
