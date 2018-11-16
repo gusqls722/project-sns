@@ -12,8 +12,8 @@
 	</select>
 	
 	<insert id="insertBOARDINFO" parameterType="boardInfo">
-		insert into board_info(boardtext,boardimage,boardlike,boardcommentcount,boardvisit,boardcredat,boardmoddat,userno)
-		values(#{boardtext},#{boardimage},#{boardlike},#{boardcommentcount},#{boardvisit},#{boardcredat},#{boardmoddat},#{userno})
+		insert into board_info(boardtext,boardimage,boardlike,boardcommentcount,boardvisit,boardcredat,boardmoddat,userno,clubno)
+		values(#{boardtext},#{boardimage},#{boardlike},#{boardcommentcount},#{boardvisit},#{boardcredat},#{boardmoddat},#{userno},#{clubno})
 	</insert>
 	
 	<update id="updateBOARDINFO" parameterType="boardInfo">
@@ -27,6 +27,7 @@
 			<if test="boardcredat!=null">boardcredat=#{boardcredat},</if>
 			<if test="boardmoddat!=null">boardmoddat=#{boardmoddat},</if>
 			<if test="userno!=null">userno=#{userno},</if>
+			<if test="clubno!=null">clubno=#{clubno},</if>
 			where boardno=#{boardno}
 		</set>
 	</update>

@@ -14,6 +14,7 @@ public class boardInfo {
 	private String boardcredat;		// date     
 	private String boardmoddat;	// date
 	private Integer userno;
+	private Integer clubno;
 	public Integer getBoardno() {
 		return boardno;
 	}
@@ -68,13 +69,17 @@ public class boardInfo {
 	public void setUserno(Integer userno) {
 		this.userno = userno;
 	}
+	public Integer getClubno() {
+		return clubno;
+	}
+	public void setClubno(Integer clubno) {
+		this.clubno = clubno;
+	}
 	@Override
 	public String toString() {
 		return "boardInfo [boardno=" + boardno + ", boardtext=" + boardtext + ", boardimage=" + boardimage
 				+ ", boardlike=" + boardlike + ", boardcommentcount=" + boardcommentcount + ", boardvisit=" + boardvisit
-				+ ", boardcredat=" + boardcredat + ", boardmoddat=" + boardmoddat + ", userno=" + userno + "]";
-	}
-
-	
-	
+				+ ", boardcredat=" + boardcredat + ", boardmoddat=" + boardmoddat + ", userno=" + userno + ", clubno="
+				+ clubno + "]";
+	}	
 }
