@@ -1,4 +1,4 @@
-package com.sns.sp;
+/*package com.sns.sp;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,8 +19,9 @@ public class daoTest {
 	
 	@Test
 	public void test() {
-		assertEquals(2,udao.selectuserInfoList().size());
+		assertEquals(3,udao.selectuserInfoList().size());
 		
 	}
 	
 }
+*/

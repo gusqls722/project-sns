@@ -1,4 +1,4 @@
-package com.sns.sp;
+/*package com.sns.sp;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -27,4 +27,4 @@ public class connectionTest {
 		assertNotNull(con);
 	}
 	
-}
+}*/
