@@ -42,7 +42,7 @@
 		select * from user_info
 		<where>
 			<if test="userid!=null"> and userid=#{userid}</if>
-			<if test="userpwq!=null"> and userpwd=#{userpwd}</if>
+			<if test="userpwd!=null"> and userpwd=#{userpwd}</if>
 		</where>
 	</select>
 

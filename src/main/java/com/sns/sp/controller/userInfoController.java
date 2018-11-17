@@ -50,4 +50,11 @@ public class userInfoController {
 		us.idcheck(userid, rMap);
 		return rMap;
 	}
+	
+	@GetMapping(value="/uis/login/{userno}")
+	public @ResponseBody Map<String,String> login(@PathVariable userInfo ui){
+		Map<String,String> rMap = new HashMap<String,String>();
+		us.login(ui, rMap);
+		return rMap;
+	}
 }
