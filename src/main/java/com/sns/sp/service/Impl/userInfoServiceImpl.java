@@ -30,11 +30,10 @@ public class userInfoServiceImpl implements userInfoService {
 			rMap.put("reg", "fail");
 			rMap.put("msg", "이미 있는 아이디 입니다.");
 			return rMap;
-		}
-		int success = udao.insertuserInfo(ui);
-		if(success==1) {
+		}else if(udao.selectuserInfoOneForId(ui.getUserid())==null) {
 			rMap.put("reg", "success");
 			rMap.put("msg", "회원가입에 성공하셨습니다.");
+			udao.insertuserInfo(ui);
 		}
 		return rMap;
 	}

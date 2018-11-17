@@ -28,7 +28,7 @@
 					          </div>
 					          <div id="title"><h2>Welcome to Club</h2></div>
 					          <p class="userlogin"> 
-							          ID <button id="idcheckbtn">중복확인</button><br><input id="userId" type="text"><br>
+							          ID <button id="idcheckbtn" onclick="idcheck()">중복확인</button><br><input id="userId" type="text"><br>
 							          Password<br><input id="userPwd" type="password"><br>
 							          <div id="forget"><a href="#">forget password?<a></div>
 					          </p>
@@ -51,7 +51,7 @@
 var id = document.getElementById("userId");
 var pwd = document.getElementById("userPwd");
 var btn = document.getElementById('SignIn');
-var cpwd ; var name; var email; var birth; var gender;
+var idcheckcount; var cpwd ; var name; var email; var birth; var gender;
 var SandR = 0;
 var Rcount = 0;
 btn.addEventListener('click',SignIn);

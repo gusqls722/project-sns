@@ -7,7 +7,6 @@ function SignIn(){
 		    		method:'GET',
 		    		param:JSON.stringify(data),
 		    		success : function(res){
-		    			alert('로그인 성공');
 		    			res = JSON.pares(res);
 		    		}
 		    }
@@ -19,8 +18,9 @@ function SignIn(){
 					method:'POST', 
 					param : JSON.stringify(data),
 					success : function(res){ 
-						alert('성공');
 						res = JSON.parse(res);
+						alert(res.msg);
+						location.reload();
 					}
 			}
 			au.send(conf);
@@ -113,7 +113,23 @@ function validate(){
 	
 	    }else if(Rcount==1){
 		      Rcount=Rcount-1;
-		      alert("새로고침");
 		      location.reload();
 	    }
   }
+  
+ function idcheck(){
+	  var idcheck = document.getElementById("userId");
+	    var data = {userid:idcheck.value};
+	    var conf = {
+				url:'/uis/'+idcheck.value,
+				method:'GET', 
+				param : JSON.stringify(data),
+				success : function(res){ 
+					res = JSON.parse(res);
+					alert(res.msg);
+					idcheckcount=0;
+				}
+	    	    
+	    }
+	    au.send(conf);
+ }
