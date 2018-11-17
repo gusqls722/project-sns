@@ -3,11 +3,12 @@ function SignIn(){
 	  if(SandR == 0){			//로그인을 눌렀을 때
 		    var data = {id:id.value,password:pwd.value};
 		    var conf = {
-		    		url:'/uis',
+		    		url:'/uis/login',
 		    		method:'GET',
 		    		param:JSON.stringify(data),
 		    		success : function(res){
 		    			res = JSON.pares(res);
+		    			alert(res.msg);
 		    		}
 		    }
 		    au.send(conf);
