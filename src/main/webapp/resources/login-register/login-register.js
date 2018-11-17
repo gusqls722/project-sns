@@ -1,6 +1,6 @@
 
-function SignIn(){
-	  if(SandR == 0){
+function SignIn(){		
+	  if(SandR == 0){			//로그인을 눌렀을 때
 		    var data = {id:id.value,password:pwd.value};
 		    var conf = {
 		    		url:'/uis',
@@ -11,7 +11,7 @@ function SignIn(){
 		    		}
 		    }
 		    au.send(conf);
-	  }else if(SandR == 1){
+	  }else if(SandR == 1){		//회원가입을 눌렀을 때
 		    var data = {userid:id.value,userpwd:pwd.value,username:nameObj.value,useremail:email.value,userbirth:birth.value,usergender:gender.value};
 		    var conf = {
 					url:'/uis',
@@ -30,7 +30,7 @@ function SignIn(){
 
 function validate(){
 	
-	  if(SandR==0){
+	  if(SandR==0){		//로그인일때
 		    if(id.value!="" && pwd.value!=""){
 			      btn.disabled=false;
 			      btn.style.backgroundColor='#6AA3AC';
@@ -38,7 +38,7 @@ function validate(){
 			      btn.disabled=true;
 			      btn.style.backgroundColor='darkgray';
 		    }
-	  }else if(SandR==1){
+	  }else if(SandR==1){	// 회원가입일때
 			  var cpwd = document.getElementById("userPwdCheck");
 			  var name = document.getElementById("userName");
 			  var email = document.getElementById("userEmail");
@@ -47,31 +47,36 @@ function validate(){
 			  var NCcheck =document.getElementById("NotCorrespond");
 			  var Ccheck = document.getElementById("Correspond");
 			  var pwdChecking;
-			  var Notpwdlength = document.getElementById("#Notpwdlength");
-			  var pwdlength = document.getElementById("#pwdlength");
-			  var pwdLenCheck;
-			  if(Notpwdlength.value!="" && Notpwdlength.value<8){
-				  pwdlength.style.display="inline-block";
-				  Notpwdlength.style.display="none";
-				  pwdLenCheck=1;
-			  }else{
-				  Notpwdlength.style.display="inline-block";
-				  pwdlength.style.display="none";
-				  pwdLenCheck=0;
-			  }
+			  var Notpwdlength = document.getElementById("Notpwdlength");
+			  var pwdlength = document.getElementById("pwdlength");
+			  var pwdLenCheck=0;
+
+			  // 비밀번호와 비밀번호 확인이 같은지 검사
 			  if(pwd.value==cpwd.value && pwd.value!="" && cpwd.value!=""){
 				  Ccheck.style.display="inline-block";
 				  NCcheck.style.display="none";
 				  pwdChecking=1;
-			  }else if(pwd.value=="" && cpwd.value==""){
-				  NCcheck.style.display="inline-block";
+			  }else if(pwd.value=="" || cpwd.value==""){
+				  NCcheck.style.display="none";
 				  Ccheck.style.display="none";
 			  }else {
 				  Ccheck.style.display="none";
 				  NCcheck.style.display="inline-block";
 				  pwdChecking=0;
 			  }
-			    if(id.value!="" && pwd.value!="" && cpwd.value!="" && nameObj.value!="" && email.value!="" && birth.value!="" && gender.value!="" && pwdChecking==1 &&  pwdLenCheck==1 && idcheckcount==0){
+			  // 비밀번호 8글자 이상인지 검사
+			  if(pwd.value.length>=8){
+				  pwdlength.style.display='inline-block';
+				  Notpwdlength.style.display='none';
+				  pwdLenCheck=1;
+			  }else if(pwd.value==""){
+				  pwdlength.style.display='none';
+				  Notpwdlength.style.display='none';
+			  }else{
+				  pwdlength.style.display='none';
+				  Notpwdlength.style.display='inline-block';
+			  }
+			    if(id.value!="" && pwd.value!="" && cpwd.value!="" && nameObj.value!="" && email.value!="" && birth.value!="" && gender.value!="" && pwdChecking==1 && pwdLenCheck==1 && idcheckcount==0){
 				      btn.disabled=false;
 				      btn.style.backgroundColor='#E5D85C';
 			    }else{
@@ -82,7 +87,7 @@ function validate(){
   
 }
 
-  function Register(){
+  function Register(){			//회원가입창으로 가기
 	    if(Rcount==0){
 			    document.getElementById("logo").style="display:none";
 			    SandR = 1;
@@ -129,7 +134,7 @@ function validate(){
 	    }
   }
   
- function idcheck(){
+ function idcheck(){			//아이디 중복 체크하기
 	  var idcheck = document.getElementById("userId");
 	  
 	    var data = {userid:idcheck.value};

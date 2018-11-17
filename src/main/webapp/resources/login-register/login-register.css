@@ -83,6 +83,7 @@ p>input{
 	font-size:15px;
 	color:red;
 	display:none;
+	float:right;
 }
 #Correspond{
 	color:green;

@@ -29,7 +29,7 @@
 					          <div id="title"><h2>Welcome to Club</h2></div>
 					          <p class="userlogin"> 
 							          ID <button id="idcheckbtn" onclick="idcheck()">중복확인</button><br><input id="userId" type="text"><br>
-							          Password<span id='Notpwdlength'>(비밀번호 불일치)</span><span id='pwdlength'>(비밀번호 일치)</span><br><input id="userPwd" type="password"><br>
+							          Password<span id='Notpwdlength'>(비밀번호는 8글자 이상입니다.)</span><span id='pwdlength'>(success)</span><br><input id="userPwd" type="password"><br>
 							          <div id="forget"><a href="#">forget password?<a></div>
 					          </p>
 					          <br>
