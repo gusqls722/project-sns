@@ -31,8 +31,8 @@ public class commentServiceImpl implements commentService {
 	}
 
 	@Override
-	public Integer deletecomment(comment c) {
-		return cdao.updatecomment(c);
+	public Integer deletecomment(int commentno) {
+		return cdao.deletecomment(commentno);
 	}
 
 }

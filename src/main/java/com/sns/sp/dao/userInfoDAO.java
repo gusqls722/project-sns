@@ -11,4 +11,7 @@ public interface userInfoDAO {
 	public Integer insertuserInfo(userInfo ui);
 	public Integer updateuserInfo(userInfo ui);
 	public Integer deleteuserInfo(int userno);
+	public userInfo login(userInfo ui);
+	public userInfo selectuserInfoOneForId(String uiid);
+	
 }

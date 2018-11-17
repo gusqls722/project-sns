@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.sns.sp.CHATINFO">
+  <select id="CHATINFOLIST" resultType="chatInfo">
+		select * from chat_info;
+	</select>
+	
+	<insert id="insertCHATINFO" parameterType="chatInfo">
+		insert into chat_info(clubreqno,acceptdat,requestdat,status,clubno,userid)
+		values(#{clubreqno},#{acceptdat},#{requestdat},#{status},#{clubno},#{userid})
+	</insert>
+	
+	<update id="updateCHATINFO" parameterType="chatInfo">
+		update chat_info
+		<set>
+			<if test="acceptdat!=null">acceptdat=#{acceptdat},</if>
+			<if test="requestdat!=null">requestdat=#{requestdat},</if>
+			<if test="status!=null">status=#{status},</if>
+			<if test="clubno!=null">clubno=#{clubno},</if>
+			<if test="userid!=null">userid=#{userid},</if>
+			where clubreqno=#{clubreqno}
+		</set>
+	</update>
+	
+	<delete id="deleteCHATINFO" parameterType="int">
+		delete from chat_info where clubreqno=#{clubreqno}
+	</delete>
+</mapper>
