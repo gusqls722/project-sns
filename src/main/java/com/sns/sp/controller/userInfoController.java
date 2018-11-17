@@ -1,6 +1,8 @@
 package com.sns.sp.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,8 +34,10 @@ public class userInfoController {
 	}
 	
 	@PostMapping(value="/uis")
-	public @ResponseBody int insertuserInfo(@RequestBody userInfo ui) {
-		return us.insertuserInfo(ui);
+	public @ResponseBody Map<String,String> inseruserInfo(@RequestBody userInfo ui) {
+		Map<String,String> rMap = new HashMap<String,String>();
+		us.insertuserInfo(ui, rMap);
+		return rMap;
 	}
 	
 	@PutMapping(value="/uis/{userno}")

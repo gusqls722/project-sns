@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,5 +36,10 @@ public class commentController {
 	public @ResponseBody Integer updatecomment(@RequestBody comment c, @PathVariable int commentno){
 		c.setCommentno(commentno);
 		return cs.updatecomment(c);
+	}
+	
+	@DeleteMapping(value="/cs/{commentno}")
+	public @ResponseBody Integer deletecomment(@PathVariable int commentno){
+		return cs.deletecomment(commentno);
 	}
 }

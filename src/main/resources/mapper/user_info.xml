@@ -12,6 +12,10 @@
 		select *from user_info where userno=#{userno}
 	</select>
 	
+	<select id="selectUSERINFOForId" resultType="userInfo" parameterType="string">
+		select * from user_info where userid=#{userid}
+	</select>
+	
 	<insert id="insertUSERINFO" parameterType="userInfo">
 		insert into user_info(userid,userpwd,username,useremail,userbirth,usergender)
 		values(#{userid},#{userpwd},#{username},#{useremail},#{userbirth},#{usergender})
@@ -33,5 +37,13 @@
 	<delete id="deleteUSERINFO" parameterType="int">
 		delete from user_info where userno=#{userno}
 	</delete>
+	
+	<select id="loginuserInfo" resultType="com.sns.sp.vo.userInfo" parameterType="com.sns.sp.vo.userInfo">
+		select * from user_info
+		<where>
+			<if test="userid!=null"> and userid=#{userid}</if>
+			<if test="userpwq!=null"> and userpwd=#{userpwd}</if>
+		</where>
+	</select>
 
 </mapper>

@@ -31,7 +31,7 @@ public class commentDAOImpl implements commentDAO {
 	}
 
 	@Override
-	public Integer deletecomment(comment c) {
+	public Integer deletecomment(int commentno) {
 		return ss.delete("com.sns.sp.COMMENT.deleteCOMMENT");
 	}
 

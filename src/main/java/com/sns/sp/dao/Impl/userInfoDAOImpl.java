@@ -20,8 +20,14 @@ public class userInfoDAOImpl implements userInfoDAO {
 		return ss.selectList("com.sns.sp.USERINFO.selectUSERINFOLIST");
 	}
 
+	@Override
 	public userInfo selectuserInfoOne(int userno) {
 		return ss.selectOne("com.sns.sp.USERINFO.selectUSERINFOONE",userno);
+	}
+	
+	@Override
+	public userInfo selectuserInfoOneForId(String userid) {
+		return ss.selectOne("com.sns.sp.USERINFO.selectUSERINFOForId");
 	}
 
 	@Override
@@ -37,5 +43,10 @@ public class userInfoDAOImpl implements userInfoDAO {
 	@Override
 	public Integer deleteuserInfo(int userno) {
 		return ss.delete("com.sns.sp.USERINFO.deleteUSERINFO",userno);
+	}
+
+	@Override
+	public userInfo login(userInfo ui) {
+		return ss.selectOne("com.sns.sp.USERINFO.loginuserInfo",ui);
 	}
 }
