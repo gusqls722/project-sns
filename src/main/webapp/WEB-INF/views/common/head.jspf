@@ -7,3 +7,7 @@
 
  <link rel="stylesheet" type="text/css" href="${lrPath}/login-register.css">
 <script src="${lrPath}/login-register.js"></script> 
+<script src="${resPath}/js/AjaxUtil.js"></script>
+<script>
+var au = new AjaxUtil();
+</script>

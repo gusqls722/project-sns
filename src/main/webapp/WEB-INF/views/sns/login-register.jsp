@@ -27,8 +27,8 @@
 					           		<img height="100" width="100"src="https://t1.daumcdn.net/cfile/tistory/173776374F6B759A16"/>
 					          </div>
 					          <div id="title"><h2>Welcome to Club</h2></div>
-					          <p class="userlogin">
-							          ID<br><input id="userId" type="text"><br>
+					          <p class="userlogin"> 
+							          ID <button id="idcheckbtn">중복확인</button><br><input id="userId" type="text"><br>
 							          Password<br><input id="userPwd" type="password"><br>
 							          <div id="forget"><a href="#">forget password?<a></div>
 					          </p>

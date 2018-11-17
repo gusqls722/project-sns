@@ -2,13 +2,28 @@
 function SignIn(){
 	  if(SandR == 0){
 		    var data = {id:id.value,password:pwd.value};
-		    var jsonData = JSON.stringify(data);
-		    console.log(jsonData);
-		    var backToObj = JSON.parse(JSON.stringify(data));
+		    var conf = {
+		    		url:'/uis',
+		    		method:'GET',
+		    		param:JSON.stringify(data),
+		    		success : function(res){
+		    			alert('로그인 성공');
+		    			res = JSON.pares(res);
+		    		}
+		    }
+		    au.send(conf);
 	  }else if(SandR == 1){
-		    var data = {id:id.value,password:pwd.value,passwordCheck:cpwd.value};
-		    var jsonData = JSON.stringify(data);
-		    console.log(jsonData);
+		    var data = {userid:id.value,userpwd:pwd.value,username:nameObj.value,useremail:email.value,userbirth:birth.value,usergender:gender.value};
+		    var conf = {
+					url:'/uis',
+					method:'POST', 
+					param : JSON.stringify(data),
+					success : function(res){ 
+						alert('성공');
+						res = JSON.parse(res);
+					}
+			}
+			au.send(conf);
 	  }
 }
 
@@ -44,7 +59,7 @@ function validate(){
 				  NCcheck.style.display="inline-block";
 				  pwdChecking=0;
 			  }
-			    if(id.value!="" && pwd.value!="" && cpwd.value!="" && name.value!="" && email.value!="" && birth.value!="" && gender.value!="" && pwdChecking==1){
+			    if(id.value!="" && pwd.value!="" && cpwd.value!="" && nameObj.value!="" && email.value!="" && birth.value!="" && gender.value!="" && pwdChecking==1){
 				      btn.disabled=false;
 				      btn.style.backgroundColor='#E5D85C';
 			    }else{
@@ -71,9 +86,11 @@ function validate(){
 			    var title = document.querySelector("#title>h2");
 			    var forget = document.querySelector("#forget>a");
 			    var regText = document.querySelector("#regText");
-			    id.value='';
+			    var idcheckbtn = document.getElementById("idcheckbtn");
+			    idcheckbtn.style.display='inline-block';
+			    id.value=''; 
 			    pwd.value='';
-			    btn.textContent = 'Register';
+			    btn.textContent = 'Register'; 
 			    btn.disabled="true";
 			    btn.style.backgroundColor='darkgray';
 			    forget.textContent = "";

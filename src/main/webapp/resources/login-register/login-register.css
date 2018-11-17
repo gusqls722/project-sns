@@ -76,7 +76,9 @@ p>input{
   border-bottom:solid 1px gray;
   cursor:pointer;
 }
-
+#gender{
+	height:25px;
+}
 #NotCorrespond, #Correspond{
 	font-size:15px;
 	color:red;
@@ -84,5 +86,17 @@ p>input{
 }
 #Correspond{
 	color:green;
-	
 }
+
+#idcheckbtn{
+	display:none;
+	float:right;
+	width:75px;
+	border-radius:10px;
+	padding:1px;
+	text-align:center;
+	font-size:15px;
+	background-color:darkgray;
+ 	color:white; 
+}
+
