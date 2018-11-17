@@ -34,8 +34,9 @@ public class userInfoController {
 	}
 	
 	@PostMapping(value="/uis")
-	public @ResponseBody Integer insertuserInfo(@RequestBody userInfo ui) {
-		return us.insertuserInfo(ui);
+	public @ResponseBody Map<String,String> insertuserInfo(@RequestBody userInfo ui) {
+		Map<String,String> rMap = new HashMap<String,String>();
+		return us.insertuserInfo(ui,rMap);
 	}
 	
 	@PutMapping(value="/uis/{userno}")

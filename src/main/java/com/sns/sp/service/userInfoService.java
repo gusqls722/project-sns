@@ -9,7 +9,7 @@ public interface userInfoService {
 
 	public List<userInfo> selectuserInfoList();
 	public userInfo selectuserInfoOne(int userno);
-	public Integer insertuserInfo(userInfo ui);
+	public Map<String,String> insertuserInfo(userInfo ui,Map<String,String> rMap);
 	public Integer updateuserInfo(userInfo ui);
 	public Integer deleteuserInfo(int userno);
 	public userInfo login(userInfo ui);
