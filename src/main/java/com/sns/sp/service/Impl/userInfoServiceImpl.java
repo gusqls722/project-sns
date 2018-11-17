@@ -46,8 +46,28 @@ public class userInfoServiceImpl implements userInfoService {
 		return udao.deleteuserInfo(userno);
 	}
 	@Override
-	public userInfo login(userInfo ui) {
-		return null;
+	public Map<String,String> login(userInfo ui, Map<String,String> rMap) {
+		rMap.put("login", "fail");
+		rMap.put("msg", "아이디 및 비밀번호를 확인하세요.");
+		if(ui.getUserid()==null) {
+			return rMap;
+		}
+		
+		userInfo uiList = udao.login(ui);
+		if(uiList == null) {
+			rMap.put("login", "fail");
+			rMap.put("msg", "아이디 및 비밀번호를 확인하세요.");
+			return rMap;
+		}
+		
+		if(ui.getUserid().equals(uiList.getUserid())) {
+			if(ui.getUserpwd().equals(uiList.getUserpwd())) {
+				rMap.put("login", "seccess");
+				rMap.put("msg", uiList.getUsername()+"님 로그인 되었습니다.");
+			}
+		}
+		
+		return rMap;
 	}
 	@Override
 	public Map<String, String> idcheck(String userid, Map<String, String> rMap) {
@@ -63,7 +83,6 @@ public class userInfoServiceImpl implements userInfoService {
 		}
 		return rMap;
 	}
-	
 	
 
 }

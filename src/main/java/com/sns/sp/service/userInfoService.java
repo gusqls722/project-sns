@@ -12,6 +12,6 @@ public interface userInfoService {
 	public Map<String,String> insertuserInfo(userInfo ui,Map<String,String> rMap);
 	public Integer updateuserInfo(userInfo ui);
 	public Integer deleteuserInfo(int userno);
-	public userInfo login(userInfo ui);
+	public Map<String,String> login(userInfo ui,Map<String,String> rMap);
 	public Map<String,String> idcheck(String userid,Map<String,String> rMap);
 }
