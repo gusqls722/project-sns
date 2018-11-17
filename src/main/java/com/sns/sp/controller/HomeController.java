@@ -1,4 +1,4 @@
-package com.sns.sp;
+package com.sns.sp.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -33,7 +33,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "sns/login-register";
 	}
 	
 }
