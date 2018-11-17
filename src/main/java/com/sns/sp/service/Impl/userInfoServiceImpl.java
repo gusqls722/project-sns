@@ -42,17 +42,16 @@ public class userInfoServiceImpl implements userInfoService {
 		return null;
 	}
 	@Override
-	public Map<String, String> idcheck(userInfo ui, Map<String, String> rMap) {
-		if(udao.idCheck(ui.getUserid())!=null) {
+	public Map<String, String> idcheck(String userid, Map<String, String> rMap) {
+		if(udao.idCheck(userid)!=null) {
 			rMap.put("reg", "fail");
 			rMap.put("msg", "이미 있는 아이디 입니다.");
 			rMap.put("value", "1");
 			return rMap;
-		}else if(udao.idCheck(ui.getUserid())==null) {
+		}else if(udao.idCheck(userid)==null) {
 			rMap.put("reg", "success");
-			rMap.put("msg", "회원가입에 성공하셨습니다.");
+			rMap.put("msg", "사용할 수 있는 아이디 입니다..");
 			rMap.put("value", "0");
-			udao.insertuserInfo(ui);
 		}
 		return rMap;
 	}

@@ -34,7 +34,7 @@ public class userInfoController {
 	}
 	
 	@PostMapping(value="/uis")
-	public @ResponseBody Integer inseruserInfo(@RequestBody userInfo ui) {
+	public @ResponseBody Integer insertuserInfo(@RequestBody userInfo ui) {
 		return us.insertuserInfo(ui);
 	}
 	
@@ -44,10 +44,10 @@ public class userInfoController {
 		return us.updateuserInfo(ui);
 	}
 	
-	@PostMapping(value="/uis")
-	public @ResponseBody Map<String,String> idCheck(@RequestBody userInfo ui){
+	@GetMapping(value="/uis/check/{userid}")
+	public @ResponseBody Map<String,String> idCheck(@PathVariable String userid){
 		Map<String,String> rMap = new HashMap<String,String>();
-		us.idcheck(ui, rMap);
+		us.idcheck(userid, rMap);
 		return rMap;
 	}
 }

@@ -59,7 +59,7 @@ function validate(){
 				  NCcheck.style.display="inline-block";
 				  pwdChecking=0;
 			  }
-			    if(id.value!="" && pwd.value!="" && cpwd.value!="" && nameObj.value!="" && email.value!="" && birth.value!="" && gender.value!="" && pwdChecking==1){
+			    if(id.value!="" && pwd.value!="" && cpwd.value!="" && nameObj.value!="" && email.value!="" && birth.value!="" && gender.value!="" && pwdChecking==1 && idcheckcount==0){
 				      btn.disabled=false;
 				      btn.style.backgroundColor='#E5D85C';
 			    }else{
@@ -119,17 +119,24 @@ function validate(){
   
  function idcheck(){
 	  var idcheck = document.getElementById("userId");
+	  
 	    var data = {userid:idcheck.value};
 	    var conf = {
-				url:'/uis/'+idcheck.value,
+				url:'/uis/check/'+idcheck.value,
 				method:'GET', 
 				param : JSON.stringify(data),
 				success : function(res){ 
 					res = JSON.parse(res);
 					alert(res.msg);
-					idcheckcount=0;
+					idcheckcount = res.value;
+					if(true){
+						validate();
+					}
+					if(res.value==0){
+					    var idcheckbtn = document.getElementById("idcheckbtn");
+					    idcheckbtn.style.backgroundColor='#E5D85C';
+					}
 				}
-	    	    
 	    }
 	    au.send(conf);
  }
