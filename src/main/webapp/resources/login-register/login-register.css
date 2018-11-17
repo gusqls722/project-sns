@@ -79,12 +79,16 @@ p>input{
 #gender{
 	height:25px;
 }
-#NotCorrespond, #Correspond{
+#NotCorrespond, #Correspond, #Notpwdlength, #pwdlength{
 	font-size:15px;
 	color:red;
 	display:none;
 }
 #Correspond{
+	color:green;
+}
+
+#pwdlength{
 	color:green;
 }
 

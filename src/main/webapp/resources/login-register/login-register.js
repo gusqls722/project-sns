@@ -47,19 +47,31 @@ function validate(){
 			  var NCcheck =document.getElementById("NotCorrespond");
 			  var Ccheck = document.getElementById("Correspond");
 			  var pwdChecking;
+			  var Notpwdlength = document.getElementById("#Notpwdlength");
+			  var pwdlength = document.getElementById("#pwdlength");
+			  var pwdLenCheck;
+			  if(Notpwdlength.value!="" && Notpwdlength.value<8){
+				  pwdlength.style.display="inline-block";
+				  Notpwdlength.style.display="none";
+				  pwdLenCheck=1;
+			  }else{
+				  Notpwdlength.style.display="inline-block";
+				  pwdlength.style.display="none";
+				  pwdLenCheck=0;
+			  }
 			  if(pwd.value==cpwd.value && pwd.value!="" && cpwd.value!=""){
 				  Ccheck.style.display="inline-block";
 				  NCcheck.style.display="none";
 				  pwdChecking=1;
 			  }else if(pwd.value=="" && cpwd.value==""){
-				  NCcheck.style.display="none";
+				  NCcheck.style.display="inline-block";
 				  Ccheck.style.display="none";
 			  }else {
 				  Ccheck.style.display="none";
 				  NCcheck.style.display="inline-block";
 				  pwdChecking=0;
 			  }
-			    if(id.value!="" && pwd.value!="" && cpwd.value!="" && nameObj.value!="" && email.value!="" && birth.value!="" && gender.value!="" && pwdChecking==1 && idcheckcount==0){
+			    if(id.value!="" && pwd.value!="" && cpwd.value!="" && nameObj.value!="" && email.value!="" && birth.value!="" && gender.value!="" && pwdChecking==1 &&  pwdLenCheck==1 && idcheckcount==0){
 				      btn.disabled=false;
 				      btn.style.backgroundColor='#E5D85C';
 			    }else{
@@ -121,22 +133,31 @@ function validate(){
 	  var idcheck = document.getElementById("userId");
 	  
 	    var data = {userid:idcheck.value};
-	    var conf = {
-				url:'/uis/check/'+idcheck.value,
-				method:'GET', 
-				param : JSON.stringify(data),
-				success : function(res){ 
-					res = JSON.parse(res);
-					alert(res.msg);
-					idcheckcount = res.value;
-					if(true){
-						validate();
+	    if(idcheck.value!="" && idcheck.value.length>=6){
+		    var conf = {
+					url:'/uis/check/'+idcheck.value,
+					method:'GET', 
+					param : JSON.stringify(data),
+					success : function(res){ 
+						res = JSON.parse(res);
+						alert(res.msg);
+						idcheckcount = res.value;
+						pwd.focus();
+						if(true){
+							validate();
+						}
+						if(res.value==0){
+						    var idcheckbtn = document.getElementById("idcheckbtn");
+						    idcheckbtn.style.backgroundColor='#E5D85C';
+						}
 					}
-					if(res.value==0){
-					    var idcheckbtn = document.getElementById("idcheckbtn");
-					    idcheckbtn.style.backgroundColor='#E5D85C';
-					}
-				}
+		    }
+		    au.send(conf);
+	    }else if(idcheck.value==""){
+	    	alert('아이디를 입력해주세요.');
+	    	id.focus();
+	    }else{
+	    	alert('아이디는 6글자 이상입니다.');
+	    	id.focus();
 	    }
-	    au.send(conf);
  }
