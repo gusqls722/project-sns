@@ -26,8 +26,8 @@ public class userInfoDAOImpl implements userInfoDAO {
 	}
 	
 	@Override
-	public userInfo selectuserInfoOneForId(String userid) {
-		return ss.selectOne("com.sns.sp.USERINFO.selectUSERINFOForId", userid);
+	public userInfo idCheck(String userid) {
+		return ss.selectOne("com.sns.sp.USERINFO.idCheck", userid);
 	}
 
 	@Override

@@ -25,20 +25,9 @@ public class userInfoServiceImpl implements userInfoService {
 	}
 		
 	@Override
-	public Map<String, String> insertuserInfo(userInfo ui, Map<String,String> rMap) {
-		if(udao.selectuserInfoOneForId(ui.getUserid())!=null) {
-			rMap.put("reg", "fail");
-			rMap.put("msg", "이미 있는 아이디 입니다.");
-			return rMap;
-		}else if(udao.selectuserInfoOneForId(ui.getUserid())==null) {
-			rMap.put("reg", "success");
-			rMap.put("msg", "회원가입에 성공하셨습니다.");
-			udao.insertuserInfo(ui);
-		}
-		return rMap;
-	}
-	
-	
+	public Integer insertuserInfo(userInfo ui) {
+		return udao.insertuserInfo(ui);
+	}	
 	
 	@Override
 	public Integer updateuserInfo(userInfo ui) {
@@ -51,6 +40,21 @@ public class userInfoServiceImpl implements userInfoService {
 	@Override
 	public userInfo login(userInfo ui) {
 		return null;
+	}
+	@Override
+	public Map<String, String> idcheck(userInfo ui, Map<String, String> rMap) {
+		if(udao.idCheck(ui.getUserid())!=null) {
+			rMap.put("reg", "fail");
+			rMap.put("msg", "이미 있는 아이디 입니다.");
+			rMap.put("value", "1");
+			return rMap;
+		}else if(udao.idCheck(ui.getUserid())==null) {
+			rMap.put("reg", "success");
+			rMap.put("msg", "회원가입에 성공하셨습니다.");
+			rMap.put("value", "0");
+			udao.insertuserInfo(ui);
+		}
+		return rMap;
 	}
 	
 	

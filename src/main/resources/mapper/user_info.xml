@@ -12,7 +12,7 @@
 		select *from user_info where userno=#{userno}
 	</select>
 	
-	<select id="selectUSERINFOForId" resultType="userInfo" parameterType="string">
+	<select id="idCheck" resultType="userInfo" parameterType="string">
 		select * from user_info where userid=#{userid}
 	</select>
 	

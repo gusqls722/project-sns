@@ -9,8 +9,9 @@ public interface userInfoService {
 
 	public List<userInfo> selectuserInfoList();
 	public userInfo selectuserInfoOne(int userno);
-	public Map<String,String> insertuserInfo(userInfo ui, Map<String,String> rMap);
+	public Integer insertuserInfo(userInfo ui);
 	public Integer updateuserInfo(userInfo ui);
 	public Integer deleteuserInfo(int userno);
 	public userInfo login(userInfo ui);
+	public Map<String,String> idcheck(userInfo ui,Map<String,String> rMap);
 }
