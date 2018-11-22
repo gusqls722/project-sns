@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.sns.sp.dao.boardLikeUserDAO;
 import com.sns.sp.vo.boardLikeUser;
-import com.sns.sp.vo.boardLikeUser;
 
 @Repository
 public class boardLikeUserDAOImpl implements boardLikeUserDAO {
