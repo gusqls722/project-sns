@@ -8,23 +8,23 @@
 	</select>
 	
 	<insert id="insertCHATINFO" parameterType="chatInfo">
-		insert into chat_info(clubreqno,acceptdat,requestdat,status,clubno,userid)
-		values(#{clubreqno},#{acceptdat},#{requestdat},#{status},#{clubno},#{userid})
+		insert into chat_info(chattext,chatdat,chatchecked,friendid,userid)
+		values(#{chattext},#{chatdat},#{chatchecked},#{friendid},#{userid})
 	</insert>
 	
 	<update id="updateCHATINFO" parameterType="chatInfo">
 		update chat_info
 		<set>
-			<if test="acceptdat!=null">acceptdat=#{acceptdat},</if>
-			<if test="requestdat!=null">requestdat=#{requestdat},</if>
-			<if test="status!=null">status=#{status},</if>
-			<if test="clubno!=null">clubno=#{clubno},</if>
+			<if test="chattext!=null">chattext=#{chattext},</if>
+			<if test="chatdat!=null">chatdat=#{chatdat},</if>
+			<if test="chatchecked!=null">chatchecked=#{chatchecked},</if>
+			<if test="friendid!=null">friendid=#{friendid},</if>
 			<if test="userid!=null">userid=#{userid},</if>
-			where clubreqno=#{clubreqno}
+			where chatno=#{chatno}
 		</set>
 	</update>
 	
 	<delete id="deleteCHATINFO" parameterType="int">
-		delete from chat_info where clubreqno=#{clubreqno}
+		delete from chat_info where chatno=#{chatno}
 	</delete>
 </mapper>

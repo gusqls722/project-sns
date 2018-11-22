@@ -22,17 +22,17 @@ public class chatInfoDAOImpl implements chatInfoDAO{
 
 	@Override
 	public Integer insertchatInfo(chatInfo ci) {
-		return ss.insert("com.sns.sp.CHATINFO.insertCHATINFO");
+		return ss.insert("com.sns.sp.CHATINFO.insertCHATINFO",ci);
 	}
 
 	@Override
 	public Integer updatechatInfo(chatInfo ci) {
-		return ss.update("com.sns.sp.CHATINFO.updateCHATINFO");
+		return ss.update("com.sns.sp.CHATINFO.updateCHATINFO",ci);
 	}
 
 	@Override
 	public Integer deletechatInfo(int chatno) {
-		return ss.delete("com.sns.sp.CHATINFO.deleteCHATINFO");
+		return ss.delete("com.sns.sp.CHATINFO.deleteCHATINFO",chatno);
 	}
 
 }

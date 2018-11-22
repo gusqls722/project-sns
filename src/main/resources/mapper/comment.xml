@@ -8,7 +8,7 @@
 	</select>
 
 	<insert id="insertCOMMENT" parameterType="comment">
-		insert into comment(commentno,boardno, userno, commenttext, commentlike, commentcredat)
+		insert into comment(boardno, userno, commenttext, commentlike, commentcredat)
 		values(#{boardno},#{userno},#{commenttext},#{commentlike},#{commentcredat})
 	</insert>
 	

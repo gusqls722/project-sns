@@ -22,17 +22,17 @@ public class commentDAOImpl implements commentDAO {
 
 	@Override
 	public Integer insertcomment(comment c) {
-		return ss.insert("com.sns.sp.COMMENT.insertCOMMENT");
+		return ss.insert("com.sns.sp.COMMENT.insertCOMMENT",c);
 	}
 
 	@Override
 	public Integer updatecomment(comment c) {
-		return ss.update("com.sns.sp.COMMENT.updateCOMMENT");
+		return ss.update("com.sns.sp.COMMENT.updateCOMMENT",c);
 	}
 
 	@Override
 	public Integer deletecomment(int commentno) {
-		return ss.delete("com.sns.sp.COMMENT.deleteCOMMENT");
+		return ss.delete("com.sns.sp.COMMENT.deleteCOMMENT",commentno);
 	}
 
 }

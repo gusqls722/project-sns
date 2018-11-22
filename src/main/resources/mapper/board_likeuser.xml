@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.sns.sp.BOARDLIKEUSER">
+  <select id="BOARDLIKEUSERLIST" resultType="boardLikeUser">
+		select * from board_likeuser;
+	</select>
+	
+	<insert id="insertBOARDLIKEUSER" parameterType="boardLikeUser">
+		insert into board_likeuser(boardno,userid)
+		values(#{boardno},#{userid})
+	</insert>
+	
+	<update id="updateBOARDLIKEUSER" parameterType="boardLikeUser">
+		update board_likeuser
+		<set>
+			<if test="userid!=null">userid=#{userid},</if>
+			where boardno=#{boardno}
+		</set>
+	</update>
+	
+	<delete id="deleteBOARDLIKEUSER" parameterType="int">
+		delete from board_likeuser where boardno=#{boardno}
+	</delete>
+</mapper>
