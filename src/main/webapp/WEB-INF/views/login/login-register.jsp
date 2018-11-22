@@ -4,7 +4,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>스프링테스트</title>
+	<title>로그인</title>
+	<script>
+    var pageTitle = document.querySelector('head title');
+
+	</script>
 </head>
 <body>
 
@@ -30,7 +34,7 @@
 					          <p class="userlogin"> 
 							          ID <button id="idcheckbtn" onclick="idcheck()">중복확인</button><br><input id="userId" type="text"><br>
 							          Password<span id='Notpwdlength'>(비밀번호는 8글자 이상입니다.)</span><span id='pwdlength'>(success)</span><br><input id="userPwd" type="password"><br>
-							          <div id="forget"><a href="#">forget password?<a></div>
+							          <div id="forget" onclick="goForget()"><a href="#">forget password?<a></div>
 					          </p>
 					          <br>
 					          <button disabled="true" id="SignIn">Sign in</button>

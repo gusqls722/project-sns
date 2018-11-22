@@ -1,0 +1,7 @@
+/**
+ * 
+ */
+
+function goForget(){
+	location.href="/"
+}

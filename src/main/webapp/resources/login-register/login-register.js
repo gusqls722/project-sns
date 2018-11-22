@@ -106,6 +106,7 @@ function validate(){		// 모든 값을 다 입력했으면 버튼 활성화
 			    var forget = document.querySelector("#forget>a");
 			    var regText = document.querySelector("#regText");
 			    var idcheckbtn = document.getElementById("idcheckbtn");
+			    pageTitle.innerText = '회원가입';
 			    idcheckbtn.style.display='inline-block';
 			    id.value=''; 
 			    pwd.value='';

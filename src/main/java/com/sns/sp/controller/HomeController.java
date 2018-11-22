@@ -33,7 +33,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "sns/login-register";
+		return "login/login-register";
 	}
 	
 }
