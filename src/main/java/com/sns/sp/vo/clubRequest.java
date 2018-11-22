@@ -1,5 +1,8 @@
 package com.sns.sp.vo;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("clubRequest")
 public class clubRequest {
 
 	private Integer clubreqno;

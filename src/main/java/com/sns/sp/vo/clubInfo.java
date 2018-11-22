@@ -1,5 +1,8 @@
 package com.sns.sp.vo;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("clubInfo")
 public class clubInfo {
 
 	private Integer clubno;
