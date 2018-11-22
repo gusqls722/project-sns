@@ -6,12 +6,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sns.sp.dao.boardListUserDAO;
+import com.sns.sp.dao.boardLikeUserDAO;
 import com.sns.sp.vo.boardLikeUser;
 import com.sns.sp.vo.boardLikeUser;
 
 @Repository
-public class boardLikeUserDAOImpl implements boardListUserDAO {
+public class boardLikeUserDAOImpl implements boardLikeUserDAO {
 
 	@Autowired
 	private SqlSession ss;

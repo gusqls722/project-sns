@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.sns.sp.vo.boardLikeUser;
 
-public interface boardListUserDAO {
+public interface boardLikeUserDAO {
 
 	public List<boardLikeUser> selectboardLikeUserList();
 	public Integer insertboardLikeUser(boardLikeUser ci);
