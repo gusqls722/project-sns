@@ -7,6 +7,7 @@
 	<title>스프링테스트</title>
 </head>
 <body>
-
+아이디를 입력해주세요.<br>
+<input type="text" id="id">
 </body>
 </html>

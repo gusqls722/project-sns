@@ -3,5 +3,5 @@
  */
 
 function goForget(){
-	location.href="/"
+	location.href='/uri/login/pwdforget';
 }
