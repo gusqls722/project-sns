@@ -12,6 +12,7 @@ public class userInfo {
 	private String useremail;
 	private String userbirth;
 	private Integer usergender;
+	
 	public Integer getUserno() {
 		return userno;
 	}

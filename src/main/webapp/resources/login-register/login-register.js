@@ -1,11 +1,12 @@
 
 function SignIn(){		
 	  if(SandR == 0){			//로그인을 눌렀을 때
-		    var data = {id:id.value,password:pwd.value};
+		  	alert('로그인');
+		    var data = {userid:id.value,userpwd:pwd.value};
 		    var conf = {
-		    		url:'/uis/login',
-		    		method:'GET',
-		    		param:JSON.stringify(data),
+		    		url : '/uis/login',
+		    		method : 'POST',
+		    		param : JSON.stringify(data),
 		    		success : function(res){
 		    			res = JSON.pares(res);
 		    			alert(res.msg);
@@ -29,7 +30,7 @@ function SignIn(){
 }
 
 
-function validate(){
+function validate(){		// 모든 값을 다 입력했으면 버튼 활성화
 	
 	  if(SandR==0){		//로그인일때
 		    if(id.value!="" && pwd.value!=""){
@@ -88,7 +89,7 @@ function validate(){
   
 }
 
-  function Register(){			//회원가입창으로 가기
+  function Register(){			//회원가입 버튼을 눌렀을 때
 	    if(Rcount==0){
 			    document.getElementById("logo").style="display:none";
 			    SandR = 1;
@@ -129,8 +130,9 @@ function validate(){
 			    birth.addEventListener('change',validate);
 			    gender.addEventListener('change',validate);
 	
-	    }else if(Rcount==1){
+	    }else if(Rcount==1){	// 회원가입창에서 나갈 때
 		      Rcount=Rcount-1;
+		      SandR = 0;
 		      location.reload();
 	    }
   }

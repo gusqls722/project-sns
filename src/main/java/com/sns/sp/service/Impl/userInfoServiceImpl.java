@@ -57,7 +57,6 @@ public class userInfoServiceImpl implements userInfoService {
 		if(uiList == null) {
 			rMap.put("login", "fail");
 			rMap.put("msg", "아이디 및 비밀번호를 확인하세요.");
-			return rMap;
 		}
 		
 		if(ui.getUserid().equals(uiList.getUserid())) {

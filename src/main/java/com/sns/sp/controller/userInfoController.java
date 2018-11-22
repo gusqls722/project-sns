@@ -4,8 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +22,8 @@ import com.sns.sp.vo.userInfo;
 
 @Controller
 public class userInfoController {
-
+	
+	
 	@Autowired
 	private userInfoService us;
 	
@@ -30,6 +34,7 @@ public class userInfoController {
 	
 	@GetMapping(value="/uis/{userno}")
 	public @ResponseBody userInfo getuserInfoOne(@PathVariable int userno) {
+		System.out.println(userno);
 		return us.selectuserInfoOne(userno);
 	}
 	
@@ -52,8 +57,9 @@ public class userInfoController {
 		return rMap;
 	}
 	
-	@GetMapping(value="/uis/login/{userno}")
-	public @ResponseBody Map<String,String> login(@PathVariable userInfo ui){
+	@PostMapping(value="/uis/login")
+	public @ResponseBody Map<String,String> login(@RequestBody userInfo ui){
+		System.out.print(ui.getUserid()+ui.getUserpwd());
 		Map<String,String> rMap = new HashMap<String,String>();
 		us.login(ui, rMap);
 		return rMap;
