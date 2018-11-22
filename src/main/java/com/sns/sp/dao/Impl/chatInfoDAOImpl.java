@@ -2,6 +2,8 @@ package com.sns.sp.dao.Impl;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sns.sp.dao.chatInfoDAO;
@@ -10,28 +12,27 @@ import com.sns.sp.vo.chatInfo;
 @Repository
 public class chatInfoDAOImpl implements chatInfoDAO{
 
+	@Autowired
+	private SqlSession ss;
+	
 	@Override
 	public List<chatInfo> selectchatInfoList() {
-		// TODO Auto-generated method stub
-		return null;
+		return ss.selectList("com.sns.sp.CHATINFO.CHATINFOLIST");
 	}
 
 	@Override
 	public Integer insertchatInfo(chatInfo ci) {
-		// TODO Auto-generated method stub
-		return null;
+		return ss.insert("com.sns.sp.CHATINFO.insertCHATINFO");
 	}
 
 	@Override
 	public Integer updatechatInfo(chatInfo ci) {
-		// TODO Auto-generated method stub
-		return null;
+		return ss.update("com.sns.sp.CHATINFO.updateCHATINFO");
 	}
 
 	@Override
 	public Integer deletechatInfo(int chatno) {
-		// TODO Auto-generated method stub
-		return null;
+		return ss.delete("com.sns.sp.CHATINFO.deleteCHATINFO");
 	}
 
 }
