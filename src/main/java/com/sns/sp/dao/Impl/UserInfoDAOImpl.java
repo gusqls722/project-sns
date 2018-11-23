@@ -49,4 +49,12 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	public UserInfo login(UserInfo ui) {
 		return ss.selectOne("com.sns.sp.USERINFO.loginuserInfo",ui);
 	}
+<<<<<<< HEAD
+=======
+
+	@Override
+	public UserInfo emailCheck(String uiid) {
+		return ss.selectOne("com.sns.sp.USERINFO.emailCheck",uiid);
+	}
+>>>>>>> branch 'master' of https://github.com/gusqls722/project-sns.git
 }

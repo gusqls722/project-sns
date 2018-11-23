@@ -8,7 +8,7 @@ function SignIn(){
 		    		method : 'POST',
 		    		param : JSON.stringify(data),
 		    		success : function(res){
-		    			res = JSON.pares(res);
+		    			res = JSON.parse(res);
 		    			alert(res.msg);
 		    		}
 		    }
@@ -151,22 +151,30 @@ function validate(){		// 모든 값을 다 입력했으면 버튼 활성화
 						res = JSON.parse(res);
 						alert(res.msg);
 						idcheckcount = res.value;
-						pwd.focus();
 						if(true){
 							validate();
 						}
-						if(res.value==0){
+						if(res.value==0){	// 아이디가 중복되지 않을 때
 						    var idcheckbtn = document.getElementById("idcheckbtn");
 						    idcheckbtn.style.backgroundColor='#E5D85C';
+						    pwd.focus();
+						}else if(res.value==1){		//아이디가 중복되지 않을 때
+							var idcheckbtn = document.getElementById("idcheckbtn");
+						    idcheckbtn.style.backgroundColor='darkgray';
+						    id.focus();
 						}
 					}
 		    }
 		    au.send(conf);
 	    }else if(idcheck.value==""){
+	    	var idcheckbtn = document.getElementById("idcheckbtn");
 	    	alert('아이디를 입력해주세요.');
+	    	idcheckbtn.style.backgroundColor='darkgray';
 	    	id.focus();
 	    }else{
+	    	var idcheckbtn = document.getElementById("idcheckbtn");
 	    	alert('아이디는 6글자 이상입니다.');
+	    	idcheckbtn.style.backgroundColor='darkgray';
 	    	id.focus();
 	    }
  }
