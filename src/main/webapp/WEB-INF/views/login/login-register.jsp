@@ -2,13 +2,16 @@
     pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
+ 
 <head>
 	<meta charset="utf-8">
 	<title>로그인</title>
+	<script src="${lrPath}/pwdforget.js"></script>
+	<script src="${lrPath}/login-register.js"></script>
 	<script>
     var pageTitle = document.querySelector('head title');
-
 	</script>
+	<link rel="stylesheet" type="text/css" href="${lrPath}/login-register.css">
 </head>
 <body>
 

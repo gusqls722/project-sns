@@ -34,7 +34,6 @@ public class userInfoController {
 	
 	@GetMapping(value="/uis/{userno}")
 	public @ResponseBody userInfo getuserInfoOne(@PathVariable int userno) {
-		System.out.println(userno);
 		return us.selectuserInfoOne(userno);
 	}
 	
@@ -59,7 +58,6 @@ public class userInfoController {
 	
 	@PostMapping(value="/uis/login")
 	public @ResponseBody Map<String,String> login(@RequestBody userInfo ui){
-		System.out.print(ui.getUserid()+ui.getUserpwd());
 		Map<String,String> rMap = new HashMap<String,String>();
 		us.login(ui, rMap);
 		return rMap;

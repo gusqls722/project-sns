@@ -5,9 +5,6 @@
 <c:set var="resPath" value="${rootPath}/resources/"/>
 <c:set var="lrPath" value="${resPath}/login-register/"/>
 
- <link rel="stylesheet" type="text/css" href="${lrPath}/login-register.css">
-<script src="${lrPath}/login-register.js"></script> 
-<script src="${lrPath}/pwdforget.js"></script>
 <script src="${resPath}/js/AjaxUtil.js"></script>
 <script>
 var au = new AjaxUtil();

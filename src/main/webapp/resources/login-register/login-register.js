@@ -8,7 +8,7 @@ function SignIn(){
 		    		method : 'POST',
 		    		param : JSON.stringify(data),
 		    		success : function(res){
-		    			res = JSON.pares(res);
+		    			res = JSON.parse(res);
 		    			alert(res.msg);
 		    		}
 		    }
