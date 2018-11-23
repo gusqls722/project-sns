@@ -34,37 +34,6 @@ public class UserInfoController {
 	
 	@GetMapping(value="/uis/{userno}")
 	public @ResponseBody UserInfo getuserInfoOne(@PathVariable int userno) {
-<<<<<<< HEAD
-		System.out.println(userno);
-		return us.selectuserInfoOne(userno);
-	}
-	
-	@PostMapping(value="/uis")
-	public @ResponseBody Map<String,String> insertuserInfo(@RequestBody UserInfo ui) {
-		Map<String,String> rMap = new HashMap<String,String>();
-		return us.insertuserInfo(ui,rMap);
-	}
-	
-	@PutMapping(value="/uis/{userno}")
-	public @ResponseBody int updateuserInfo(@RequestBody UserInfo ui,@PathVariable int userno) {
-		ui.setUserno(userno);
-		return us.updateuserInfo(ui);
-	}
-	
-	@GetMapping(value="/uis/check/{userid}")
-	public @ResponseBody Map<String,String> idCheck(@PathVariable String userid){
-		Map<String,String> rMap = new HashMap<String,String>();
-		us.idcheck(userid, rMap);
-		return rMap;
-	}
-	
-	@PostMapping(value="/uis/login")
-	public @ResponseBody Map<String,String> login(@RequestBody UserInfo ui){
-		System.out.print(ui.getUserid()+ui.getUserpwd());
-		Map<String,String> rMap = new HashMap<String,String>();
-		us.login(ui, rMap);
-		return rMap;
-=======
 		return us.selectuserInfoOne(userno);
 	}
 	
@@ -98,7 +67,6 @@ public class UserInfoController {
 	public @ResponseBody Map<String,String> mailcheck(@PathVariable String userid){
 		Map<String,String> rMap = new HashMap<String,String>();
 		return rMap;
-		
->>>>>>> branch 'master' of https://github.com/gusqls722/project-sns.git
+
 	}
 }

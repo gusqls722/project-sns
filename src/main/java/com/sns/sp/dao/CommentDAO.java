@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.sns.sp.dao;
 
 import java.util.List;
@@ -12,18 +11,3 @@ public interface CommentDAO {
 	public Integer updatecomment(Comment c);
 	public Integer deletecomment(int commentno);
 }
-=======
-package com.sns.sp.dao;
-
-import java.util.List;
-
-import com.sns.sp.vo.Comment;
-
-public interface CommentDAO {
-	
-	public List<Comment> selectcommentList();
-	public Integer insertcomment(Comment c);
-	public Integer updatecomment(Comment c);
-	public Integer deletecomment(int commentno);
-}
->>>>>>> branch 'master' of https://github.com/gusqls722/project-sns.git

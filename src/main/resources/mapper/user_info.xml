@@ -38,11 +38,8 @@
 		delete from user_info where userno=#{userno}
 	</delete>
 	
-<<<<<<< HEAD
-	<select id="loginuserInfo" resultType="com.sns.sp.vo.UserInfo" parameterType="com.sns.sp.vo.UserInfo">
-=======
+
 	<select id="loginuserInfo" resultType="userInfo" parameterType="userInfo">
->>>>>>> branch 'master' of https://github.com/gusqls722/project-sns.git
 		select * from user_info
 		<where>
 			<if test="userid!=null"> and userid=#{userid}</if>

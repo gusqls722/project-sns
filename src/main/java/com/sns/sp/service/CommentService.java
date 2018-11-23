@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.sns.sp.service;
 
 import java.util.List;
@@ -12,18 +11,4 @@ public interface CommentService {
 	public Integer updatecomment(Comment c);
 	public Integer deletecomment(int commentno);
 }
-=======
-package com.sns.sp.service;
 
-import java.util.List;
-
-import com.sns.sp.vo.Comment;
-
-public interface CommentService {
-
-	public List<Comment> selectcommentList();
-	public Integer insertcomment(Comment c);
-	public Integer updatecomment(Comment c);
-	public Integer deletecomment(int commentno);
-}
->>>>>>> branch 'master' of https://github.com/gusqls722/project-sns.git

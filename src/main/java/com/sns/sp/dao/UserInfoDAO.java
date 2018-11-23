@@ -13,9 +13,5 @@ public interface UserInfoDAO {
 	public Integer deleteuserInfo(int userno);
 	public UserInfo login(UserInfo ui);
 	public UserInfo idCheck(String uiid);
-<<<<<<< HEAD
-	
-=======
 	public UserInfo emailCheck(String uiid);
->>>>>>> branch 'master' of https://github.com/gusqls722/project-sns.git
 }

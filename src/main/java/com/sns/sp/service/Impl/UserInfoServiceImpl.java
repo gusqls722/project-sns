@@ -80,14 +80,12 @@ public class UserInfoServiceImpl implements UserInfoService {
 		}
 		return rMap;
 	}
-<<<<<<< HEAD
-=======
+	
 	@Override
 	public Map<String, String> emailcheck(String userid, Map<String, String> rMap) {
 		udao.emailCheck(userid);
 		return rMap;
 	}
->>>>>>> branch 'master' of https://github.com/gusqls722/project-sns.git
 	
 
 }
