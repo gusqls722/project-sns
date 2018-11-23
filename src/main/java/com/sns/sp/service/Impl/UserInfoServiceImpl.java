@@ -80,6 +80,12 @@ public class UserInfoServiceImpl implements UserInfoService {
 		}
 		return rMap;
 	}
+	@Override
+	public Map<String, String> emailcheck(String userid, Map<String, String> rMap) {
+		
+		udao.emailCheck(userid);
+		return rMap;
+	}
 	
 
 }

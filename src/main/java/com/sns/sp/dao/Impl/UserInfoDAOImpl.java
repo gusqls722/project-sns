@@ -49,4 +49,9 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	public UserInfo login(UserInfo ui) {
 		return ss.selectOne("com.sns.sp.USERINFO.loginuserInfo",ui);
 	}
+
+	@Override
+	public UserInfo emailCheck(String uiid) {
+		return ss.selectOne("com.sns.sp.USERINFO.emailCheck",uiid);
+	}
 }

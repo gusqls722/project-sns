@@ -14,4 +14,5 @@ public interface UserInfoService {
 	public Integer deleteuserInfo(int userno);
 	public Map<String,String> login(UserInfo ui,Map<String,String> rMap);
 	public Map<String,String> idcheck(String userid,Map<String,String> rMap);
+	public Map<String,String> emailcheck(String userid, Map<String,String> rMap);
 }

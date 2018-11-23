@@ -45,5 +45,9 @@
 			<if test="userpwd!=null"> and userpwd=#{userpwd}</if>
 		</where>
 	</select>
-
+	
+	<select id="idCheck" resultType="userInfo" parameterType="userInfo">
+		select useremail from user_info
+		where userid=#{userid}
+	</select>
 </mapper>

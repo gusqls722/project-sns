@@ -44,9 +44,9 @@ public class MessageSender {
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(username));//
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("secret8191@naver.com"));
-			message.setSubject("실험");
-			message.setText("Dear Mail Crawler," + "\n\n No spam to my email, please!");// 내용
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("ckrudxo159@naver.com"));
+			message.setSubject("안녕");
+			message.setText("내용," + "\n\n No spam to my email, please!");// 내용
 			// message.setContent("내용","text/html; charset=utf-8");//글내용을 html타입 charset설정
 			System.out.println("send!!!");
 			Transport.send(message);

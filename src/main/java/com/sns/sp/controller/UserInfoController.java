@@ -62,4 +62,11 @@ public class UserInfoController {
 		us.login(ui, rMap);
 		return rMap;
 	}
+	
+	@GetMapping(value="/uis/mail/{userid}")
+	public @ResponseBody Map<String,String> mailcheck(@PathVariable String userid){
+		Map<String,String> rMap = new HashMap<String,String>();
+		return rMap;
+		
+	}
 }
