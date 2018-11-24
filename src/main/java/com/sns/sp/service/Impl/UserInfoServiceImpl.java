@@ -3,6 +3,9 @@ package com.sns.sp.service.Impl;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,21 +50,25 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return udao.deleteuserInfo(userno);
 	}
 	@Override
-	public Map<String,String> login(UserInfo ui, Map<String,String> rMap) {
+	public Map<String,String> login(UserInfo ui, Map<String,String> rMap,HttpServletRequest req) {
+		HttpSession session= req.getSession();
+		
 		rMap.put("login", "fail");
 		rMap.put("msg", "아이디 및 비밀번호를 확인하세요.");
 		if(ui.getUserid()==null) {
 			return rMap;
 		}
 		
-		UserInfo uiList = udao.login(ui);
-		if(uiList == null) {
+		UserInfo uiVO = udao.login(ui);
+		if(uiVO == null) {
 			rMap.put("login", "fail");
 			rMap.put("msg", "아이디 및 비밀번호를 확인하세요.");
-		}else if(ui.getUserid().equals(uiList.getUserid())) {
-			if(ui.getUserpwd().equals(uiList.getUserpwd())) {
+		}else if(ui.getUserid().equals(uiVO.getUserid())) {
+			if(ui.getUserpwd().equals(uiVO.getUserpwd())) {
+				req.setAttribute("user", uiVO);
 				rMap.put("login", "seccess");
-				rMap.put("msg", uiList.getUsername()+"님 로그인 되었습니다.");
+				rMap.put("msg", uiVO.getUsername()+"님 로그인 되었습니다.");
+				session.setAttribute("user", uiVO);
 			}
 		}
 		
