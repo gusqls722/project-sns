@@ -10,7 +10,7 @@ function SignIn(){
 		    		success : function(res){
 		    			res = JSON.parse(res);
 		    			alert(res.msg);
-		    			
+		    			location.href="/uri/main/main";
 		    			
 		    		}
 		    }
