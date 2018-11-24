@@ -33,20 +33,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <form class="form-inline">
           <a class="navbar-brand" href="#">로고</a>
-          <input type="text">
-          <button>검색</button>
+          <div class="form-group">
+           	<input type="text" class="form-control" id="search" placeholder="검색할내용">
+           	<button type="button" class="btn btn-default">검색</button>
+          </div>
+          </form>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
-            <div class="form-group">
-            	<span style="color:white;">${user.username} 님 환영합니다.</span>
-              <button onclick="goUI()">회원정보</button>
-            </div>
-            <div class="form-group">
-             <button>로그아웃</button>
-            </div>
-            <button type="submit" class="btn btn-success">생각중인버튼</button>
+          <span style="color:white;">${user.username} 님 환영합니다.</span>
+              <button type="button" class="btn btn-default">회원정보</button>
+             <button type="button" class="btn btn-default">로그아웃</button>
+            <button type="button" class="btn btn-default">생각중인버튼</button>
+            
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -55,21 +56,20 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-      <table>
-      	<td>
-        <h1>동아리 정보 리스트</h1>
-        <p>회원수 높은순으로 정렬</p>
+      <table class="table">
+      <tr>
+        <th>동아리명</th>
+        <th>회원수</th>
+        <th>동아리 설명</th>
+      </tr>
+      <tr>
+      	<td id="clubname"></td>
+      	<td></td>
+      	<td></td>
+      </tr>
+      </table>  
         <p><a class="btn btn-primary btn-lg" href="#" role="button">더많은 동아리 보기 &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">동아리 만들기 &raquo;</a></p>
-        </td>
-        
-        <td>
-        <h1>동아리 정보 리스트2</h1>
-        </td>
-        <td>
-        <h1>동아리 정보 리스트3</h1>
-        </td>
-       </table>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">동아리 만들기 &raquo;</a></p>       
       </div>
     </div>
 
@@ -96,7 +96,7 @@
       <hr>
 
       <footer>
-        <p>&copy; bdi club</p>
+        <p class="text-center">&copy; bdi club</p>
       </footer>
     </div> <!-- /container -->
 
@@ -107,11 +107,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${resPath}/js/bootstrap.min.js"></script>
   </body>
-  
-  <script>
-  		function goUI(){
-  			// 유저정보 페이지로 감
-  		}
-  
-  </script>
 </html>
