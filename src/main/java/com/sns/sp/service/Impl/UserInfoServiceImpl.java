@@ -102,6 +102,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 			rMap.put("msg", email+"등록하신 이메일로 메일을 전송하였습니다.");
 			rMap.put("value", "0");
 		}
+
 		return rMap;
 	}
 	
