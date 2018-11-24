@@ -83,7 +83,11 @@ public class UserInfoServiceImpl implements UserInfoService {
 	
 	@Override
 	public Map<String, String> emailcheck(String userid, Map<String, String> rMap) {
-		udao.emailCheck(userid);
+		rMap.put("reg", "success");
+		rMap.put("msg", ")
+		if(udao.emailCheck(userid).getUseremail()!="") {
+			
+		};
 		return rMap;
 	}
 	
