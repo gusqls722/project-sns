@@ -57,17 +57,18 @@
     <div class="jumbotron">
       <div class="container">
       <table class="table">
-      <tr>
-        <th>동아리명</th>
-        <th>회원수</th>
-        <th>동아리 설명</th>
-      </tr>
-      <tr>
-      	<td id="clubname"></td>
-      	<td></td>
-      	<td></td>
-      </tr>
+      <thead>
+		      <tr>
+			        <th>동아리명</th>
+			        <th>동아리 설명</th>
+			        <th>회원수</th>
+		      </tr>
+      </thead>
+      <tbody id="ciBody">
+      	
+      </tbody>
       </table>  
+      
         <p><a class="btn btn-primary btn-lg" href="#" role="button">더많은 동아리 보기 &raquo;</a></p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">동아리 만들기 &raquo;</a></p>       
       </div>
@@ -107,4 +108,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${resPath}/js/bootstrap.min.js"></script>
   </body>
+  
+ <script>
+  window.addEventListener('load',function(){
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET','/cis');
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState==4){
+			if(xhr.status==200){
+				var res = JSON.parse(xhr.responseText);
+				alert(res);
+				var html = '';
+				for(var ci of res){
+					html += '<tr>';
+					html += '<td>'+ci.clubname+'</td>';
+					html += '<td>'+ci.clubdesc+'</td>';
+					html += '<td>'+ci.clubuc+'</td>';
+					html += '</tr>';
+				}
+				
+				document.querySelector('#ciBody').insertAdjacentHTML('beforeend',html);
+			}else{
+				
+			}
+		}
+	}
+	xhr.send();
+})
+</script>
 </html>
