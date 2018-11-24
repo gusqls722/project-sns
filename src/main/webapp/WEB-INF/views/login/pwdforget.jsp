@@ -10,20 +10,29 @@
 <h3>이메일 인증</h3>
 아이디를 입력해주세요.<br>
 <input type="text" id="userid">
-<button onclick="goMail()">인증보내기</button>
+<button onclick="goMail()" id="gomailbtn">인증보내기</button>
 <script>
 function goMail(){
-	var userid = document.querySelector('#userid');
+	var mailbtn = document.getElementById('gomailbtn');
+	mailbtn.disabled=true;
+	var userid = document.getElementById('userid');
 	var data = {userid:userid.value};
 	var conf = {
-			url : '/uis/mail'+userid,
+			url : '/uis/mail/'+userid.value,
 			method : 'GET',
-			param : JSON.stringify(data);
+			param : JSON.stringify(data),
 			success : function(res){
 				res = JSON.parse(res);
+				if(res.value==0){		// 이메일이 보내진다.
+					alert(res.msg);
+					window.close();
+				}else if(res.value==1){ // 이메일이 안보내진다.
+					alert(res.msg);
+					window.close();
+				}
 			}
 	}
-	alert('아이디에 등록 된 이메일로 인증 메일을 보냅니다.');
+	au.send(conf);
 }
 
 </script>

@@ -12,8 +12,12 @@
 		select *from user_info where userno=#{userno}
 	</select>
 	
-	<select id="idCheck" resultType="userInfo" parameterType="string">
+	<select id="idCheck" resultType="userInfo" parameterType="String">
 		select * from user_info where userid=#{userid}
+	</select>
+	
+	<select id="emailCheck" resultType="String" parameterType="String">
+		select useremail from user_info where userid=#{userid}
 	</select>
 	
 	<insert id="insertUSERINFO" parameterType="userInfo">
@@ -46,4 +50,14 @@
 			<if test="userpwd!=null"> and userpwd=#{userpwd}</if>
 		</where>
 	</select>
+	
+	
+	<update id="changePwd" parameterType="userInfo">
+		update user_info
+		<set>
+			<if test="userpwd!=null">userpwd=#{userpwd},</if>
+		</set>
+		where userid=#{userid}
+	</update>
+
 </mapper>

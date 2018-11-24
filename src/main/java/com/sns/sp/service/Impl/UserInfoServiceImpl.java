@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sns.sp.dao.UserInfoDAO;
 import com.sns.sp.service.UserInfoService;
+import com.sns.sp.util.MessageSender;
 import com.sns.sp.vo.UserInfo;
 
 @Service
@@ -83,10 +84,18 @@ public class UserInfoServiceImpl implements UserInfoService {
 	
 	@Override
 	public Map<String, String> emailcheck(String userid, Map<String, String> rMap) {
-		rMap.put("reg", "success");
-		if(udao.emailCheck(userid).getUseremail()!="") {
-			
-		};
+		rMap.put("reg", "fail");
+		rMap.put("msg", "아이디가 존재하지 않습니다.");
+		rMap.put("value", "1");
+		if(udao.emailCheck(userid)!=null) {
+			String email = udao.emailCheck(userid);
+			String newPwd= MessageSender.sendmail(email);
+			udao.changePwd(newPwd, userid);
+			rMap.put("reg", "success");
+			rMap.put("msg", email+"등록하신 이메일로 메일을 전송하였습니다.");
+			rMap.put("value", "0");
+		}
+
 		return rMap;
 	}
 	
