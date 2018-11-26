@@ -43,4 +43,6 @@ public class ClubInfoController {
 	public @ResponseBody Integer deleteclubInfo(@PathVariable int chatno){
 		return cis.deleteclubInfo(chatno);
 	}
+	
+	
 }

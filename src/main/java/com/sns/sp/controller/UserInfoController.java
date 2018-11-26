@@ -66,12 +66,18 @@ public class UserInfoController {
 		return rMap;
 	}
 	
+	@GetMapping(value="/uis/logout")
+	public String Logout(HttpServletRequest req, HttpSession session) {
+		session = req.getSession();
+		session.invalidate();
+		return "login/login-register";
+	}
+	
 	@GetMapping(value="/uis/mail/{userid}")
 	public @ResponseBody Map<String,String> mailcheck(@PathVariable String userid){
 		System.out.print(userid);
 		Map<String,String> rMap = new HashMap<String,String>();
 		us.emailcheck(userid, rMap);
 		return rMap;
-
 	}
 }

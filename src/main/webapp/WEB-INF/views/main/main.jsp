@@ -45,7 +45,7 @@
           <form class="navbar-form navbar-right">
           <span style="color:white;">${user.username} 님 환영합니다.</span>
               <button type="button" class="btn btn-default">회원정보</button>
-             <button type="button" class="btn btn-default">로그아웃</button>
+             <button type="button" class="btn btn-default" onclick="logout()">로그아웃</button>
             <button type="button" class="btn btn-default">생각중인버튼</button>
             
           </form>
@@ -117,13 +117,12 @@
 		if(xhr.readyState==4){
 			if(xhr.status==200){
 				var res = JSON.parse(xhr.responseText);
-				alert(res);
 				var html = '';
 				for(var ci of res){
 					html += '<tr>';
 					html += '<td>'+ci.clubname+'</td>';
 					html += '<td>'+ci.clubdesc+'</td>';
-					html += '<td>'+ci.clubuc+'</td>';
+					html += '<td>'+ci.clubUC+'</td>';
 					html += '</tr>';
 				}
 				
@@ -135,5 +134,16 @@
 	}
 	xhr.send();
 })
+
+	function logout(){
+	 /*  var conf = {
+				url:'/uis/logout',
+				method:'GET' 
+	  }
+	  au.send(conf); */
+	  location = '/uis/logout';
+	  alert('로그아웃 되셨습니다.');
+	  location = '/uri/login/login-register';
+  	}
 </script>
 </html>
