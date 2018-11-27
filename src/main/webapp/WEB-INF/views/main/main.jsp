@@ -63,7 +63,7 @@
         <th>동아리 설명</th>
       </tr>
       <tr>
-      	<td id="clubname"></td>
+      	<td></td>
       	<td></td>
       	<td></td>
       </tr>

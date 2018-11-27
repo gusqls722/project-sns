@@ -17,6 +17,7 @@ public class ClubInfoServiceImpl implements ClubInfoService {
 	
 	@Override
 	public List<ClubInfo> selectclubInfoList() {
+		
 		return cidao.selectclubInfoList();
 	}
 
