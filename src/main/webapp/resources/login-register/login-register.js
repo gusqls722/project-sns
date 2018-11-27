@@ -1,7 +1,6 @@
 
 function SignIn(){		
 	  if(SandR == 0){			//로그인을 눌렀을 때
-		  	alert('로그인');
 		    var data = {userid:id.value,userpwd:pwd.value};
 		    var conf = {
 		    		url : '/uis/login',

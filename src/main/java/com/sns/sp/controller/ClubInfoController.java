@@ -24,8 +24,12 @@ public class ClubInfoController {
 	
 	@GetMapping(value="/cis")
 	public @ResponseBody List<ClubInfo> getclubInfoList(@ModelAttribute ClubInfo c){
-		
 		return cis.selectclubInfoList();
+	}
+	
+	@GetMapping(value="/cis/top5")
+	public @ResponseBody List<ClubInfo> getclubInfoListTop5(@ModelAttribute ClubInfo c){
+		return cis.selectclubInfoListTop();
 	}
 	
 	@PostMapping(value="/cis")
