@@ -59,8 +59,8 @@
       <table class="table" style="margin-top:15px">
       <thead>
 		      <tr>
-			        <th>동아리명</th>
-			        <th>동아리 설명</th>
+			        <th>클럽명</th>
+			        <th>클럽 설명</th>
 			        <th>회원수</th>
 		      </tr>
       </thead>

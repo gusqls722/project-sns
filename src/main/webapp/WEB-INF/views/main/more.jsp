@@ -56,11 +56,12 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
+      	<h3>모든 클럽명</h3>
       <table class="table" style="margin-top:15px">
       <thead>
 		      <tr>
-			        <th>동아리명</th>
-			        <th>동아리 설명</th>
+			        <th>클럽명</th>
+			        <th>클럽 설명</th>
 			        <th>회원수</th>
 		      </tr>
       </thead>
