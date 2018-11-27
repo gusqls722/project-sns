@@ -152,4 +152,3 @@
   }
 </script>
 </html>
->>>>>>> branch 'master' of https://github.com/gusqls722/project-sns.git
