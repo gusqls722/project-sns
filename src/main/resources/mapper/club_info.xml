@@ -3,8 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.sns.sp.CLUBINFO">
-  <select id="CLUBINFOLIST" resultType="clubInfo">
+  	<select id="CLUBINFOLIST" resultType="clubInfo">
 		select * from club_info;
+	</select>
+	
+	<select id="CLUBINFOLISTTOP" resultType="clubInfo">
+		select * from club_info order by clubUC limit 5;
 	</select>
 	
 	<insert id="insertCLUBINFO" parameterType="clubInfo">

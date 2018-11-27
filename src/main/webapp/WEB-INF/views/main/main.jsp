@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>여러가지 취미 CLUB</title>
 
     <!-- Bootstrap core CSS -->
     <link href="${resPath}/css/bootstrap.min.css" rel="stylesheet">
@@ -34,9 +34,9 @@
             <span class="icon-bar"></span>
           </button>
           <form class="form-inline">
-          <a class="navbar-brand" href="#">로고</a>
-          <div class="form-group">
-           	<input type="text" class="form-control" id="search" placeholder="검색할내용">
+          <a class="navbar-brand" href="/uri/main/main">로고</a>
+          <div class="form-group" style="margin-top:10px">
+           	<input type="text" class="form-control" id="search" placeholder="검색할 클럽">
            	<button type="button" class="btn btn-default">검색</button>
           </div>
           </form>
@@ -45,7 +45,7 @@
           <form class="navbar-form navbar-right">
           <span style="color:white;">${user.username} 님 환영합니다.</span>
               <button type="button" class="btn btn-default">회원정보</button>
-             <button type="button" class="btn btn-default">로그아웃</button>
+             <button type="button" class="btn btn-default" onclick="logout()">로그아웃</button>
             <button type="button" class="btn btn-default">생각중인버튼</button>
             
           </form>
@@ -56,19 +56,20 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-      <table class="table">
-      <tr>
-        <th>동아리명</th>
-        <th>회원수</th>
-        <th>동아리 설명</th>
-      </tr>
-      <tr>
-      	<td></td>
-      	<td></td>
-      	<td></td>
-      </tr>
+      <table class="table" style="margin-top:15px">
+      <thead>
+		      <tr>
+			        <th>클럽명</th>
+			        <th>클럽 설명</th>
+			        <th>회원수</th>
+		      </tr>
+      </thead>
+      <tbody id="ciBody">
+      	
+      </tbody>
       </table>  
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">더많은 동아리 보기 &raquo;</a></p>
+      
+        <p><a class="btn btn-primary btn-lg" href="#" role="button" onclick="moreClub()">더많은 동아리 보기 &raquo;</a></p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">동아리 만들기 &raquo;</a></p>       
       </div>
     </div>
@@ -107,4 +108,48 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${resPath}/js/bootstrap.min.js"></script>
   </body>
+  
+ <script>
+  window.addEventListener('load',function(){
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET','/cis/top5');
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState==4){
+			if(xhr.status==200){
+				var res = JSON.parse(xhr.responseText);
+				var html = '';
+				for(var ci of res){
+					html += '<tr>';
+					html += '<td>'+ci.clubname+'</td>';
+					html += '<td>'+ci.clubdesc+'</td>';
+					html += '<td>'+ci.clubUC+'</td>';
+					html += '</tr>';
+				}
+				
+				document.querySelector('#ciBody').insertAdjacentHTML('beforeend',html);
+			}else{
+				
+			}
+		}
+	}
+	xhr.send();
+})
+
+	function logout(){
+	 /*  var conf = {
+				url:'/uis/logout',
+				method:'GET' 
+	  }
+	  au.send(conf); */
+	  location = '/uis/logout';
+	  alert('로그아웃 되셨습니다.');
+	  location = '/uri/login/login-register';
+  	}
+  
+  
+  function moreClub(){
+	  location = '/uri/main/more';
+  }
+</script>
 </html>
+>>>>>>> branch 'master' of https://github.com/gusqls722/project-sns.git

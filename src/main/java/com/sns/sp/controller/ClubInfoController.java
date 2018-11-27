@@ -27,6 +27,11 @@ public class ClubInfoController {
 		return cis.selectclubInfoList();
 	}
 	
+	@GetMapping(value="/cis/top5")
+	public @ResponseBody List<ClubInfo> getclubInfoListTop5(@ModelAttribute ClubInfo c){
+		return cis.selectclubInfoListTop();
+	}
+	
 	@PostMapping(value="/cis")
 	public @ResponseBody Integer insertclubInfo(@RequestBody ClubInfo ci){
 		return cis.insertclubInfo(ci);
@@ -42,4 +47,6 @@ public class ClubInfoController {
 	public @ResponseBody Integer deleteclubInfo(@PathVariable int chatno){
 		return cis.deleteclubInfo(chatno);
 	}
+	
+	
 }

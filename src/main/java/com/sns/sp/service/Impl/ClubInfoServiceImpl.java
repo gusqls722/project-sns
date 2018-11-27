@@ -36,4 +36,9 @@ public class ClubInfoServiceImpl implements ClubInfoService {
 		return cidao.deleteclubInfo(chatno);
 	}
 
+	@Override
+	public List<ClubInfo> selectclubInfoListTop() {
+		return cidao.selectclubInfoListTop();
+	}
+
 }

@@ -20,7 +20,11 @@ public class ClubInfoDAOImpl implements ClubInfoDAO {
 	public List<ClubInfo> selectclubInfoList() {
 		return ss.selectList("com.sns.sp.CLUBINFO.CLUBINFOLIST");
 	}
-
+	
+	public List<ClubInfo> selectclubInfoListTop() {
+		return ss.selectList("com.sns.sp.CLUBINFO.CLUBINFOLISTTOP");
+	}
+	
 	@Override
 	public Integer insertclubInfo(ClubInfo ci) {
 		return ss.insert("com.sns.sp.CLUBINFO.insertCLUBINFO",ci);
