@@ -35,16 +35,16 @@
             <span class="icon-bar"></span>
           </button>
           <form class="form-inline">
-          <a class="navbar-brand" href="/uri/main/main">로고</a>
-          <div class="form-group" style="margin-top:10px">
+          <a class="navbar-brand" href="/uri/main/main"><img src="${resPath}/image/logo.png" style="width:80px; height:30px; "></a>
+          <div class="form-group" style="padding-top:14px; margin-bottom:-5px;">
            	<input type="text" class="form-control" id="search" placeholder="검색할 클럽">
            	<button type="button" class="btn btn-default">검색</button>
           </div>
           </form>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-          <span style="color:white;">${user.username} 님 환영합니다.</span>
+        <div id="navbar" class="navbar-collapse collapse" style="margin-top:4px; ">
+          <form class="navbar-form navbar-right"> 
+          <span style="color:white; margin-top:3px;">${user.username} 님 환영합니다.</span>
               <button type="button" class="btn btn-default">회원정보</button>
              <button type="button" class="btn btn-default" onclick="logout()">로그아웃</button>
             <button type="button" class="btn btn-default">생각중인버튼</button>

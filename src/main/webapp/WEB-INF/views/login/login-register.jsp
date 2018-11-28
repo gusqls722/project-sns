@@ -30,8 +30,8 @@
 	
 			    <div id="right">
 				        <div id="rightText">
-					          <div id="logo">
-					           		<img height="100" width="100"src="https://t1.daumcdn.net/cfile/tistory/173776374F6B759A16"/>
+					          <div id="logo" style="padding:20px 0 40px 0;">
+					           		<img height="40" width="110"src="${resPath}/image/logo.png" />
 					          </div>
 					          <div id="title"><h2>Welcome to Club</h2></div>
 					          <p class="userlogin"> 
