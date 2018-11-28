@@ -22,6 +22,16 @@ public class ClubInfoServiceImpl implements ClubInfoService {
 	}
 
 	@Override
+	public List<ClubInfo> selectclubInfoListTop() {
+		return cidao.selectclubInfoListTop();
+	}
+	
+	@Override
+	public ClubInfo selectclubInfoOne(int cino) {
+		return cidao.selectclubInfoOne(cino);
+	}
+	
+	@Override
 	public Integer insertclubInfo(ClubInfo ci) {
 		return cidao.insertclubInfo(ci);
 	}
@@ -32,13 +42,12 @@ public class ClubInfoServiceImpl implements ClubInfoService {
 	}
 
 	@Override
-	public Integer deleteclubInfo(int chatno) {
-		return cidao.deleteclubInfo(chatno);
+	public Integer deleteclubInfo(int cino) {
+		return cidao.deleteclubInfo(cino);
 	}
 
-	@Override
-	public List<ClubInfo> selectclubInfoListTop() {
-		return cidao.selectclubInfoListTop();
-	}
+
+
+
 
 }

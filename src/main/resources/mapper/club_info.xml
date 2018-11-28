@@ -11,6 +11,10 @@
 		select * from club_info order by clubUC limit 5;
 	</select>
 	
+	<select id="CLUBINFOONE" resultType="clubInfo" parameterType="int">
+		select * from club_info where clubno=#{clubno}
+	</select>
+	
 	<insert id="insertCLUBINFO" parameterType="clubInfo">
 		insert into club_info(clubname,clubdesc,clubUC,userid)
 		values(#{clubname},#{clubdesc},#{clubUC},#{userid})

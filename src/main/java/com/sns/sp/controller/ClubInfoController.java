@@ -32,21 +32,27 @@ public class ClubInfoController {
 		return cis.selectclubInfoListTop();
 	}
 	
+	@GetMapping("/cis/{cino}")
+	public @ResponseBody ClubInfo getclubInfoOne(@PathVariable int cino){
+		return cis.selectclubInfoOne(cino);			// 바로 작업해 새꺄
+	}
+	
 	@PostMapping(value="/cis")
 	public @ResponseBody Integer insertclubInfo(@RequestBody ClubInfo ci){
 		return cis.insertclubInfo(ci);
 	}
 	
-	@PutMapping(value="/cis/{chatno}")
-	public @ResponseBody Integer updateclubInfo(@RequestBody ClubInfo ci, @PathVariable int clubno){
-		ci.setClubno(clubno);
+	@PutMapping(value="/cis/{clubno}")
+	public @ResponseBody Integer updateclubInfo(@RequestBody ClubInfo ci, @PathVariable int cino){
+		ci.setClubno(cino);
 		return cis.updateclubInfo(ci);
 	}
 	
-	@DeleteMapping(value="/cis/{chatno}")
-	public @ResponseBody Integer deleteclubInfo(@PathVariable int chatno){
-		return cis.deleteclubInfo(chatno);
+	@DeleteMapping(value="/cis/{clubno}")
+	public @ResponseBody Integer deleteclubInfo(@PathVariable int cino){
+		return cis.deleteclubInfo(cino);
 	}
 	
+
 	
 }

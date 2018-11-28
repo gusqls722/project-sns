@@ -80,4 +80,12 @@ public class UserInfoController {
 		us.emailcheck(userid, rMap);
 		return rMap;
 	}
+	
+	@GetMapping(value="/uis/session")
+	public @ResponseBody Map<String,String> sessioncheck(HttpServletRequest req, HttpSession session){
+		session = req.getSession(false);
+		Map<String,String> rMap = new HashMap<String,String>();
+		us.sessioncheck(rMap,session);
+		return rMap;
+	}
 }
