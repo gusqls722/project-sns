@@ -11,7 +11,7 @@ public class UserInfo {
 	private String username;
 	private String useremail;
 	private String userbirth;
-	private Integer usergender;
+	private String usergender;
 	
 	public Integer getUserno() {
 		return userno;
@@ -49,10 +49,10 @@ public class UserInfo {
 	public void setUserbirth(String userbirth) {
 		this.userbirth = userbirth;
 	}
-	public Integer getUsergender() {
+	public String getUsergender() {
 		return usergender;
 	}
-	public void setUsergender(Integer usergender) {
+	public void setUsergender(String usergender) {
 		this.usergender = usergender;
 	}
 	@Override

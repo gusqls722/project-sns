@@ -65,6 +65,11 @@ public class UserInfoServiceImpl implements UserInfoService {
 			rMap.put("msg", "아이디 및 비밀번호를 확인하세요.");
 		}else if(ui.getUserid().equals(uiVO.getUserid())) {
 			if(ui.getUserpwd().equals(uiVO.getUserpwd())) {
+				if(uiVO.getUsergender()=="1") {
+					uiVO.setUsergender("남자");
+				}else if(uiVO.getUsergender()=="2") {
+					uiVO.setUsergender("여자");
+				}
 				req.setAttribute("user", uiVO);
 				rMap.put("login", "seccess");
 				rMap.put("msg", uiVO.getUsername()+"님 로그인 되었습니다.");
