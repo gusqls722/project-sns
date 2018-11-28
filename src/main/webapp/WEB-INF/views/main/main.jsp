@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@include file="common/session.jspf" %>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -111,7 +112,8 @@
   
  <script>
   window.addEventListener('load',function(){
-	var xhr = new XMLHttpRequest();
+	
+    var xhr = new XMLHttpRequest();
 	xhr.open('GET','/cis/top5');
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState==4){
@@ -133,6 +135,7 @@
 		}
 	}
 	xhr.send();
+	
 })
 
 	function logout(){
@@ -143,12 +146,13 @@
 	  au.send(conf); */
 	  location = '/uis/logout';
 	  alert('로그아웃 되셨습니다.');
-	  location = '/uri/login/login-register';
   	}
   
   
   function moreClub(){
 	  location = '/uri/main/more';
   }
+  
+
 </script>
 </html>
