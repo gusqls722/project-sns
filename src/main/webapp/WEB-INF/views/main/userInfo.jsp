@@ -20,41 +20,72 @@
 <body>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<h4>회원정보</h4>
-			</div>
-			
-		</div>
-		
-	</nav>
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <form class="form-inline">
+          <a class="navbar-brand" href="/uri/main/main"><img src="${resPath}/image/logo.png" style="width:80px; height:30px; "></a>
+          <div class="form-group" style="padding-top:14px; margin-bottom:-5px;">
+           	<input type="text" class="form-control" id="search" placeholder="검색할 클럽">
+           	<button type="button" class="btn btn-default">검색</button>
+          </div>
+          </form>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" style="margin-top:4px; ">
+          <form class="navbar-form navbar-right"> 
+          <span style="color:white; margin-top:3px;">${user.username} 님 환영합니다.</span>
+              <button type="button" class="btn btn-default">회원정보</button>
+             <button type="button" class="btn btn-default" onclick="logout()">로그아웃</button>
+            <button type="button" class="btn btn-default">생각중인버튼</button>
+            
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
 	
 	<div class="jumbotron">
 		<div class="container">
-		<table class="table">
+		<table class="table" style="margin-top:15px">
  			<tr>
  				<th>아이디</th>
- 				<td>test</td>
+ 				<td>${user.userid}</td>
  			</tr>
  			<tr>
  				<th>이름</th>
- 				<td>홍길동</td>
+ 				<td>${user.username}</td>
  			</tr>
  			<tr>
  				<th>이메일</th>
- 				<td>test@naver.com</td>
+ 				<td>${user.useremail}</td>
  			</tr>
  			<tr>
  				<th>생년월일</th>
- 				<td>1993.10.20</td>
+ 				<td>${user.userbirth}</td>
  			</tr>
  			<tr>
  				<th>성별</th>
- 				<td>남성</td>
+ 				<td>${user.usergender}</td>
  			</tr>
 		</table>
-		<button type="button" class="btn btn-default">회원수정</button>
-            <button type="button" class="btn btn-default">돌아가기</button>
+		
 	</div>
+	</div>
+	<div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <button type="button" class="btn btn-default">회원수정</button>
+        <button type="button" class="btn btn-default">돌아가기</button>
+      </div>
+
+      <hr>
+      
+      <footer>
+        <p class="text-center">&copy; bdi club</p>
+      </footer>
 </body>
 </html>

@@ -45,7 +45,7 @@
         <div id="navbar" class="navbar-collapse collapse" style="margin-top:4px; ">
           <form class="navbar-form navbar-right"> 
           <span style="color:white; margin-top:3px;">${user.username} 님 환영합니다.</span>
-              <button type="button" class="btn btn-default">회원정보</button>
+              <button type="button" class="btn btn-default" onclick="userInfo()">회원정보</button>
              <button type="button" class="btn btn-default" onclick="logout()">로그아웃</button>
             <button type="button" class="btn btn-default">생각중인버튼</button>
             
@@ -151,6 +151,10 @@
   
   function moreClub(){
 	  location = '/uri/main/more';
+  }
+  
+  function userInfo(){
+	  location = '/uri/main/userInfo'
   }
   
 
