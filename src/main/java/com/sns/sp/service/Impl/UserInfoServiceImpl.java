@@ -105,6 +105,20 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 		return rMap;
 	}
+	@Override
+	public Map<String, String> sessioncheck(Map<String, String> rMap, HttpSession session) {
+		if(session.getAttribute("user")==null) {
+			rMap.put("reg", "fail");
+			rMap.put("msg", "다시 로그인 해주세요.");
+			rMap.put("value", "0");
+		}else {
+			rMap.put("reg", "success");
+			rMap.put("msg", "세션이 있다.");
+			rMap.put("value", "1");
+		}
+		
+		return rMap;
+	}
 	
 
 }

@@ -21,8 +21,14 @@ public class ClubInfoDAOImpl implements ClubInfoDAO {
 		return ss.selectList("com.sns.sp.CLUBINFO.CLUBINFOLIST");
 	}
 	
+	@Override
 	public List<ClubInfo> selectclubInfoListTop() {
 		return ss.selectList("com.sns.sp.CLUBINFO.CLUBINFOLISTTOP");
+	}
+	
+	@Override
+	public ClubInfo selectclubInfoOne(int cino) {
+		return ss.selectOne("com.sns.sp.CLUBINFO.CLUBINFOONE", cino);
 	}
 	
 	@Override
@@ -36,9 +42,11 @@ public class ClubInfoDAOImpl implements ClubInfoDAO {
 	}
 
 	@Override
-	public Integer deleteclubInfo(int chatno) {
-		return ss.delete("com.sns.sp.CLUBINFO.deleteCLUBINFO",chatno);
+	public Integer deleteclubInfo(int cino) {
+		return ss.delete("com.sns.sp.CLUBINFO.deleteCLUBINFO",cino);
 	}
+
+
 
 }
 
