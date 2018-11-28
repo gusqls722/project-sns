@@ -16,15 +16,15 @@
 
     <!-- Bootstrap core CSS -->
     <link href="${resPath}/css/bootstrap.min.css" rel="stylesheet">
-
+	<style>
+		table{
+			width:75%;
+		}
+	</style>
    
 
 <body>
 <h3>동아리 만들기</h3>
-
-동아리명 : <input type="text">
-
-동아리 설명 : <textarea></textarea>
 
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -63,17 +63,23 @@
       <thead>
 		      <tr>
 			        <th>동아리명</th>
-			        <th>동아리 설명</th>
-			        <th>회원수</th>
+		      </tr>
+		      <tr>
+		      		<th><input type="text" id="clubname" class="form-control" placeholder="클럽명을 입력해 주세요"></th>
+		      </tr>
+		      <tr>
+			  	    <th>동아리 설명</th>
+			  </tr>
+			  <tr>
+					<th><textarea id="clubdesc" class="form-control" placeholder="클럽설명을 입력해 주세요" rows="4"></textarea></th>
 		      </tr>
       </thead>
       <tbody id="ciBody">
       	
       </tbody>
       </table>  
-      
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">더많은 동아리 보기 &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">동아리 만들기 &raquo;</a></p>       
+        <a class="btn btn-primary btn-lg" role="button" onclick="cc()">클럽 생성 &raquo;</a>
+       	<a class="btn btn-primary btn-lg" href="/uri/main/main" role="button">생성 취소 &raquo;</a>       
       </div>
     </div>
 
@@ -111,4 +117,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${resPath}/js/bootstrap.min.js"></script>
 </body>
+<script>
+	function CC(){
+		var cn = document.querySelector('#clubname').value;
+		var cd = document.querySelector('#clubdesc').value;
+		
+	}
+</script>
 </html>
