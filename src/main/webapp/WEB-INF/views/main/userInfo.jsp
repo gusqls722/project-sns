@@ -39,7 +39,7 @@
         <div id="navbar" class="navbar-collapse collapse" style="margin-top:4px; ">
           <form class="navbar-form navbar-right"> 
           <span style="color:white; margin-top:3px;">${user.username} 님 환영합니다.</span>
-              <button type="button" class="btn btn-default">회원정보</button>
+              <button type="button" class="btn btn-default" onclick="userInfo()">회원정보</button>
              <button type="button" class="btn btn-default" onclick="logout()">로그아웃</button>
             <button type="button" class="btn btn-default">생각중인버튼</button>
             
@@ -50,6 +50,7 @@
 	
 	<div class="jumbotron">
 		<div class="container">
+		<h3>회원정보</h3>
 		<table class="table" style="margin-top:15px">
  			<tr>
  				<th>아이디</th>
@@ -79,7 +80,7 @@
       <!-- Example row of columns -->
       <div class="row">
         <button type="button" class="btn btn-default">회원수정</button>
-        <button type="button" class="btn btn-default">돌아가기</button>
+        <button type="button" class="btn btn-default" onclick="goHome()">돌아가기</button>
       </div>
 
       <hr>
@@ -88,4 +89,19 @@
         <p class="text-center">&copy; bdi club</p>
       </footer>
 </body>
+
+<script>
+	function goHome(){
+		location.href="/uri/main/main";
+	}
+	
+	function logout(){
+		  location = '/uis/logout';
+		  alert('로그아웃 되셨습니다.');
+	}
+	
+	function userInfo(){
+		location = '/uri/main/userInfo'
+	}
+</script>
 </html>
