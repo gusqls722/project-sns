@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@include file="common/session.jspf" %>
+<%@include file="common/session.jspf"%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -11,7 +11,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
     <title>여러가지 취미 CLUB</title>
 
     <!-- Bootstrap core CSS -->
@@ -138,26 +137,10 @@
 	xhr.send();
 	
 })
-
-	function logout(){
-	 /*  var conf = {
-				url:'/uis/logout',
-				method:'GET' 
-	  }
-	  au.send(conf); */
-	  location = '/uis/logout';
-	  alert('로그아웃 되셨습니다.');
-  	}
-  
   
   function moreClub(){
 	  location = '/uri/main/more';
   }
-  
-  function userInfo(){
-	  location = '/uri/main/userInfo'
-  }
-  
 
 </script>
 </html>
