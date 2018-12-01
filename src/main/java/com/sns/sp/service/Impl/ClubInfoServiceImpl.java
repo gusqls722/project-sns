@@ -51,8 +51,4 @@ public class ClubInfoServiceImpl implements ClubInfoService {
 		return cidao.deleteclubInfo(cino);
 	}
 
-
-
-
-
 }
