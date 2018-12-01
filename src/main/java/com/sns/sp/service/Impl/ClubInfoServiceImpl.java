@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sns.sp.dao.ClubInfoDAO;
+import com.sns.sp.dao.ClubUserDAO;
 import com.sns.sp.service.ClubInfoService;
 import com.sns.sp.vo.ClubInfo;
 
@@ -14,6 +15,8 @@ public class ClubInfoServiceImpl implements ClubInfoService {
 
 	@Autowired
 	private ClubInfoDAO cidao;
+	@Autowired
+	private ClubUserDAO cudao;
 	
 	@Override
 	public List<ClubInfo> selectclubInfoList() {
@@ -33,7 +36,9 @@ public class ClubInfoServiceImpl implements ClubInfoService {
 	
 	@Override
 	public Integer insertclubInfo(ClubInfo ci) {
-		return cidao.insertclubInfo(ci);
+		 int rs = cidao.insertclubInfo(ci);
+		 int rs2 = cudao.insertclubUser(ci);
+		 return 1;
 	}
 
 	@Override

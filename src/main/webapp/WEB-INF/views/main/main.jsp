@@ -71,7 +71,7 @@
       </table>  
       
         <p><a class="btn btn-primary btn-lg" href="#" role="button" onclick="moreClub()">더많은 동아리 보기 &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">동아리 만들기 &raquo;</a></p>       
+        <p><a class="btn btn-primary btn-lg" href="#" role="button" onclick="createClub()">동아리 만들기 &raquo;</a></p>       
       </div>
     </div>
 
@@ -140,6 +140,10 @@
   
   function moreClub(){
 	  location = '/uri/main/more';
+  }
+  
+  function createClub(){
+	  location = '/uri/main/createclub';
   }
 
 </script>

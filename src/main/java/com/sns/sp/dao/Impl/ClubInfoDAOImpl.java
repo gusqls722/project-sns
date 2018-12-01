@@ -35,7 +35,6 @@ public class ClubInfoDAOImpl implements ClubInfoDAO {
 	public Integer insertclubInfo(ClubInfo ci) {
 		return ss.insert("com.sns.sp.CLUBINFO.insertCLUBINFO",ci);
 	}
-
 	@Override
 	public Integer updateclubInfo(ClubInfo ci) {
 		return ss.update("com.sns.sp.CLUBINFO.updateCLUBINFO",ci);

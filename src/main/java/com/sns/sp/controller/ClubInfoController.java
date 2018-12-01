@@ -45,6 +45,7 @@ public class ClubInfoController {
 	public @ResponseBody Integer insertclubInfo(@RequestBody ClubInfo ci,HttpSession hs){
 		UserInfo uivo = (UserInfo) hs.getAttribute("user");
 		ci.setUserid(uivo.getUserid());
+		ci.setClubUC(1);
 		return cis.insertclubInfo(ci);
 	}
 	
