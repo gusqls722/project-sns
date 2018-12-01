@@ -84,7 +84,7 @@ public class MessageSender {
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(username));//
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("gusqls722@naver.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
 			message.setSubject(subject);
 			message.setContent(msg, "text/html; charset=utf-8");// 내용
 			// message.setContent("내용","text/html; charset=utf-8");//글내용을 html타입 charset설정
