@@ -1,3 +1,4 @@
+<%@page import="com.sns.sp.vo.ClubInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -62,13 +63,13 @@
       <table class="table">
       <thead>
 		      <tr>
-			        <th>동아리명</th>
+			        <th>클럽 명</th>
 		      </tr>
 		      <tr>
 		      		<th><input type="text" id="clubname" class="form-control" placeholder="클럽명을 입력해 주세요"></th>
 		      </tr>
 		      <tr>
-			  	    <th>동아리 설명</th>
+			  	    <th>클럽 설명</th>
 			  </tr>
 			  <tr>
 					<th><textarea id="clubdesc" class="form-control" placeholder="클럽설명을 입력해 주세요" rows="4"></textarea></th>
@@ -118,10 +119,21 @@
     <script src="${resPath}/js/bootstrap.min.js"></script>
 </body>
 <script>
-	function CC(){
+
+	function cc(){
 		var cn = document.querySelector('#clubname').value;
 		var cd = document.querySelector('#clubdesc').value;
 		
+		var conf = {
+				url:'/cis',
+				method:'POST',
+				param : JSON.stringify({clubname:cn,clubdesc:cd}),
+				success : function(res){
+					res = JSON.parse(res);
+					alert(res.msg);
+					}
+				}
+			au.send(conf);
 	}
 </script>
 </html>
