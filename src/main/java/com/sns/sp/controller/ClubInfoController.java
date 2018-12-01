@@ -2,6 +2,8 @@ package com.sns.sp.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sns.sp.service.ClubInfoService;
 import com.sns.sp.vo.ClubInfo;
+import com.sns.sp.vo.UserInfo;
 
 @Controller
 public class ClubInfoController {
@@ -24,6 +27,7 @@ public class ClubInfoController {
 	
 	@GetMapping(value="/cis")
 	public @ResponseBody List<ClubInfo> getclubInfoList(@ModelAttribute ClubInfo c){
+		
 		return cis.selectclubInfoList();
 	}
 	
@@ -34,11 +38,13 @@ public class ClubInfoController {
 	
 	@GetMapping("/cis/{cino}")
 	public @ResponseBody ClubInfo getclubInfoOne(@PathVariable int cino){
-		return cis.selectclubInfoOne(cino);			// 바로 작업해 새꺄
+		return cis.selectclubInfoOne(cino);			
 	}
 	
 	@PostMapping(value="/cis")
-	public @ResponseBody Integer insertclubInfo(@RequestBody ClubInfo ci){
+	public @ResponseBody Integer insertclubInfo(@RequestBody ClubInfo ci,HttpSession hs){
+		UserInfo uivo = (UserInfo) hs.getAttribute("user");
+		ci.setUserid(uivo.getUserid());
 		return cis.insertclubInfo(ci);
 	}
 	
