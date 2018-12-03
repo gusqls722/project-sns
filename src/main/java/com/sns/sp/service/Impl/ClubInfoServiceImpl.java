@@ -1,6 +1,7 @@
 package com.sns.sp.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,10 +36,17 @@ public class ClubInfoServiceImpl implements ClubInfoService {
 	}
 	
 	@Override
-	public Integer insertclubInfo(ClubInfo ci) {
+	public Map<String,String> insertclubInfo(ClubInfo ci, Map<String,String> rMap) {
+		 rMap.put("reg", "fail");
+		 rMap.put("msg", "클럽이 만들어지지 않았습니다.");
 		 int rs = cidao.insertclubInfo(ci);
 		 int rs2 = cudao.insertclubUser(ci);
-		 return 1;
+		 if(rs==1 && rs2==1) {
+			 rMap.put("reg", "fail");
+			 rMap.put("msg", "클럽이 정상적으로 만들어졌습니다.");
+			 
+		 }
+		 return rMap;
 	}
 
 	@Override

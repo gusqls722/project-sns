@@ -130,6 +130,7 @@
 				success : function(res){
 					res = JSON.parse(res);
 					alert(res.msg);
+					location = '/uri/main/main';
 					}
 				}
 			au.send(conf);

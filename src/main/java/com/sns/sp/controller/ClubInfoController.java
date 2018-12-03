@@ -1,6 +1,8 @@
 package com.sns.sp.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -42,11 +44,13 @@ public class ClubInfoController {
 	}
 	
 	@PostMapping(value="/cis")
-	public @ResponseBody Integer insertclubInfo(@RequestBody ClubInfo ci,HttpSession hs){
+	public @ResponseBody Map<String,String> insertclubInfo(@RequestBody ClubInfo ci,HttpSession hs){
+		Map<String,String> rMap = new HashMap<String,String>();
 		UserInfo uivo = (UserInfo) hs.getAttribute("user");
 		ci.setUserid(uivo.getUserid());
 		ci.setClubUC(1);
-		return cis.insertclubInfo(ci);
+		cis.insertclubInfo(ci, rMap);
+		return rMap;
 	}
 	
 	@PutMapping(value="/cis/{clubno}")
