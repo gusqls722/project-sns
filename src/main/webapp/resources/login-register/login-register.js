@@ -16,6 +16,22 @@ function SignIn(){
 		    au.send(conf);
 	  }else if(SandR == 1){		//회원가입을 눌렀을 때
 		    var data = {userid:id.value,userpwd:pwd.value,username:nameObj.value,useremail:email.value,userbirth:birth.value,usergender:gender.value};
+		    var emailData = {email:email.value};
+		    var emailCheck = 0;
+		    var emailconf = {
+		    		url:'/uis/'+email.value,
+		    		method:'GET',
+		    		param : JSON.stringify(emailData),
+		    		success : function(res){
+		    			res = JSON.parse(res);
+		    			alert(res.msg);
+		    			if(res.value==1){
+		    				emailCheck=1;
+		    			}
+		    		}
+		    }
+		    
+		    if(emailCheck==1){
 		    var conf = {
 					url:'/uis',
 					method:'POST', 
@@ -27,7 +43,9 @@ function SignIn(){
 					}
 			}
 			au.send(conf);
+	  		}
 	  }
+	  
 }
 
 
