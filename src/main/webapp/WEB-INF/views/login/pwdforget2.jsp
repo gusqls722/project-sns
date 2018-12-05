@@ -28,7 +28,7 @@ function goMail(){
 				res = JSON.parse(res);
 				if(res.value==0){		// 이메일이 보내진다.
 					alert(res.msg);
-					
+					window.close();
 				}else if(res.value==1){ // 이메일이 안보내진다.
 					alert(res.msg);
 					window.close();

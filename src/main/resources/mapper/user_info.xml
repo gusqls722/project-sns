@@ -16,6 +16,10 @@
 		select * from user_info where userid=#{userid}
 	</select>
 	
+	<select id="eidCheck" resultType="String" parameterType="String">
+		select userid from user_info where userid=#{userid}
+	</select>
+	
 	<select id="emailCheck" resultType="String" parameterType="String">
 		select useremail from user_info where userid=#{userid}
 	</select>

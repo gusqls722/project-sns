@@ -13,6 +13,7 @@ public interface UserInfoDAO {
 	public Integer deleteuserInfo(int userno);
 	public UserInfo login(UserInfo ui);
 	public UserInfo idCheck(String uiid);
+	public String midCheck(String uiid);
 	public String emailCheck(String uiid);
 	public Integer changePwd(String pwd,String uiid);
 }

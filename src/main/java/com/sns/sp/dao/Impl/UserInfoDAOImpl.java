@@ -51,6 +51,12 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	}
 
 	@Override
+	public String midCheck(String uiid) {
+		 String user = ss.selectOne("com.sns.sp.USERINFO.midCheck",uiid);
+		 return user;
+	}
+	
+	@Override
 	public String emailCheck(String uiid) {
 		String user = ss.selectOne("com.sns.sp.USERINFO.emailCheck",uiid);
 		System.out.println(user);
@@ -65,4 +71,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		ui.setUserid(uiid);
 		return ss.update("com.sns.sp.USERINFO.changePwd", ui);
 	}
+
+	
 }

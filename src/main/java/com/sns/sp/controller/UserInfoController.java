@@ -73,6 +73,13 @@ public class UserInfoController {
 		return "login/login-register";
 	}
 	
+	@GetMapping(value="/uis/midcheck/{userid}")
+	public @ResponseBody Map<String,String> midcheck(@PathVariable String userid){
+		Map<String,String> rMap = new HashMap<String,String>();
+		us.midcheck(userid, rMap);
+		return rMap;
+	}
+	
 	@GetMapping(value="/uis/mail/{userid}")
 	public @ResponseBody Map<String,String> mailcheck(@PathVariable String userid){
 		System.out.print(userid);
@@ -81,6 +88,7 @@ public class UserInfoController {
 		return rMap;
 	}
 	
+		
 	@GetMapping(value="/uis/session")
 	public @ResponseBody Map<String,String> sessioncheck(HttpServletRequest req, HttpSession session){
 		session = req.getSession(false);
