@@ -20,4 +20,5 @@ public interface UserInfoService {
 	public Map<String,String> midcheck(String userid,Map<String,String> rMap);
 	public Map<String,String> emailcheck(String userid, Map<String,String> rMap);
 	public Map<String,String> sessioncheck(Map<String,String> rMap,HttpSession session);
+	public Map<String,String> userEmailCheck(String useremail,Map<String,String> rMap);
 }

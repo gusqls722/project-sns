@@ -72,5 +72,9 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		return ss.update("com.sns.sp.USERINFO.changePwd", ui);
 	}
 
-	
+	@Override
+	public String userEmailCheck(String email) {
+		String useremail = ss.selectOne("com.sns.sp.USERINFO.userEmailCheck",email);
+		return useremail;
+	}
 }

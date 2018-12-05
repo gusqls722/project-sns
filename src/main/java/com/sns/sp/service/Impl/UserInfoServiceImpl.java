@@ -137,6 +137,21 @@ public class UserInfoServiceImpl implements UserInfoService {
 		
 		return rMap;
 	}
+	@Override
+	public Map<String, String> userEmailCheck(String useremail, Map<String, String> rMap) {
+		String emailvalue = udao.userEmailCheck(useremail);
+		if(emailvalue==null) {
+			String email = emailvalue;
+			rMap.put("reg", "success");
+			rMap.put("msg", "사용가능한 이메일 입니다.");
+			rMap.put("value", "1");
+		}else {
+			rMap.put("reg", "fail");
+			rMap.put("msg", "이미 존재하는 이메일 입니다.");
+			rMap.put("value", "0");
+		}
+		return rMap;
+	}
 	
 	
 
