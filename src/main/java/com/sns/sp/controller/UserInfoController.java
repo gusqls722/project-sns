@@ -72,14 +72,14 @@ public class UserInfoController {
 	}
 	
 	@GetMapping(value="/uis/midcheck/{userid}")
-	public @ResponseBody Map<String,String> midcheck(@PathVariable String userid){
+	public @ResponseBody Map<String,String> midcheck(@PathVariable String userid,HttpServletRequest req){
 		Map<String,String> rMap = new HashMap<String,String>();
-		us.midcheck(userid, rMap);
+		us.midcheck(userid, rMap, req);
 		return rMap;
 	}
 	
-	@GetMapping(value="/uis/mail/{userid}")
-	public @ResponseBody Map<String,String> mailcheck(@PathVariable String userid){
+	@GetMapping(value="/uis/mail/{userid}/{useremail}")
+	public @ResponseBody Map<String,String> mailcheck(@PathVariable("userid") String userid,@PathVariable("useremail") String useremail){
 		System.out.print(userid);
 		Map<String,String> rMap = new HashMap<String,String>();
 		us.emailcheck(userid, rMap);

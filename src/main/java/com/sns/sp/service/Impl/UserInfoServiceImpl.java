@@ -94,15 +94,17 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return rMap;
 	}
 	@Override
-	public Map<String, String> midcheck(String userid, Map<String, String> rMap) {
-		if(udao.idCheck(userid)!=null) {
+	public Map<String, String> midcheck(String userid, Map<String, String> rMap, HttpServletRequest req) {
+		HttpSession session= req.getSession();
+		
+		if(udao.idCheck(userid)==null) {
 			rMap.put("reg", "fail");
 			rMap.put("msg", "존재하지 않는 아이디 입니다.");
 			rMap.put("value", "1");
 			return rMap;
-		}else if(udao.idCheck(userid)==null) {
+		}else if(udao.idCheck(userid)!=null) {
+			req.setAttribute("userid", userid);
 			rMap.put("reg", "success");
-			/*rMap.put("msg", "사용할 수 있는 아이디 입니다.");*/
 			rMap.put("value", "0");
 		}
 		return rMap;
@@ -110,7 +112,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	@Override
 	public Map<String, String> emailcheck(String userid, Map<String, String> rMap) {
 		rMap.put("reg", "fail");
-		rMap.put("msg", "아이디가 존재하지 않습니다.");
+		rMap.put("msg", "이메일이 다릅니다.");
 		rMap.put("value", "1");
 		if(udao.emailCheck(userid)!=null) {
 			String email = udao.emailCheck(userid);

@@ -8,8 +8,6 @@
 </head>
 <body>
 <h3>이메일 인증</h3>
-아이디를 입력해주세요.<br>
-<input type="text" id="userid"><br>
 email을 입력해주세요<br>
 <input type="text" id="emailid">
 <button onclick="goMail()" id="gomailbtn">인증보내기</button>
@@ -18,10 +16,11 @@ function goMail(){
 	var mailbtn = document.getElementById('gomailbtn');
 	mailbtn.disabled=true;
 	var userid = document.getElementById('userid');
+	var emailid = document.getElementById('emailid');
 	
-	var data = {userid:userid.value};
+	var data = {userid:userid.value, emailid:emailid.value};
 	var conf = {
-			url : '/uis/midcheck/'+userid.value,
+			url : '/uis/mail/'+userid.value+'/'+emailid.value,
 			method : 'GET',
 			param : JSON.stringify(data),
 			success : function(res){

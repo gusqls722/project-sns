@@ -10,9 +10,8 @@
 <h3>이메일 인증</h3>
 아이디를 입력해주세요.<br>
 <input type="text" id="userid"><br>
-email을 입력해주세요<br>
-<input type="text" id="emailid">
-<button onclick="goMail()" id="gomailbtn">인증보내기</button>
+
+<button onclick="goMail()" id="gomailbtn">아이디확인</button>
 <script>
 function goMail(){
 	var mailbtn = document.getElementById('gomailbtn');
@@ -23,12 +22,10 @@ function goMail(){
 	var conf = {
 			url : '/uis/midcheck/'+userid.value,
 			method : 'GET',
-			param : JSON.stringify(data),
 			success : function(res){
 				res = JSON.parse(res);
 				if(res.value==0){		// 이메일이 보내진다.
-					alert(res.msg);
-					
+					location = '/uri/login/pwdforget2';
 				}else if(res.value==1){ // 이메일이 안보내진다.
 					alert(res.msg);
 					window.close();
