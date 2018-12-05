@@ -7,17 +7,15 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sns.sp.service.UserInfoService;
@@ -86,6 +84,13 @@ public class UserInfoController {
 		session = req.getSession(false);
 		Map<String,String> rMap = new HashMap<String,String>();
 		us.sessioncheck(rMap,session);
+		return rMap;
+	}
+	
+	@GetMapping(value="/uis/emailcheck")
+	public @ResponseBody Map<String,String> userEmailCheck(@RequestParam("email") String useremail){
+		Map<String,String> rMap = new HashMap<String,String>();
+		us.userEmailCheck(useremail, rMap);
 		return rMap;
 	}
 }
