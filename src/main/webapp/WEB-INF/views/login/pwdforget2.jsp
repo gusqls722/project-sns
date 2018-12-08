@@ -9,18 +9,19 @@
 <body>
 <h3>이메일 인증</h3>
 email을 입력해주세요<br>
-<input type="text" id="emailid">
+
+<input type="text" id="useremail">
 <button onclick="goMail()" id="gomailbtn">인증보내기</button>
+
 <script>
 function goMail(){
 	var mailbtn = document.getElementById('gomailbtn');
 	mailbtn.disabled=true;
-	var userid = document.getElementById('userid');
-	var emailid = document.getElementById('emailid');
-	
-	var data = {userid:userid.value, emailid:emailid.value};
+	var useremail = document.getElementById('useremail');
+	alert(useremail.value);
+	var data = {useremail:useremail.value};
 	var conf = {
-			url : '/uis/mail/'+userid.value+'/'+emailid.value,
+			url : '/uis/mail?useremail='+decodeURIComponent(useremail.value),
 			method : 'GET',
 			param : JSON.stringify(data),
 			success : function(res){

@@ -78,11 +78,14 @@ public class UserInfoController {
 		return rMap;
 	}
 	
-	@GetMapping(value="/uis/mail/{userid}/{useremail}")
-	public @ResponseBody Map<String,String> mailcheck(@PathVariable("userid") String userid,@PathVariable("useremail") String useremail){
-		System.out.print(userid);
+	@GetMapping(value="/uis/mail")
+	public @ResponseBody Map<String,String> mailcheck(@RequestParam("useremail") String useremail
+			, HttpServletRequest req, HttpSession session){
+		session = req.getSession(false);
+		System.out.println(session.getAttribute("userid"));
+		System.out.print(useremail);
 		Map<String,String> rMap = new HashMap<String,String>();
-		us.emailcheck(userid, rMap);
+		us.emailcheck(useremail, rMap, session);
 		return rMap;
 	}
 	
