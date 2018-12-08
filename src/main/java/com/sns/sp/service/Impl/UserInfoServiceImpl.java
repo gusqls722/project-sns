@@ -115,7 +115,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		rMap.put("reg", "fail");
 		rMap.put("msg", "이메일이 다릅니다.");
 		rMap.put("value", "1");
-		if(udao.emailCheck((String)session.getAttribute("userid"))!=null) {
+		if(udao.emailCheck((String)session.getAttribute("userid"))==null) {
 			String email = udao.emailCheck(useremail);
 			String newPwd= MessageSender.sendmail(useremail);
 			udao.changePwd(newPwd, useremail);
