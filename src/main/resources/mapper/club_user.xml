@@ -7,4 +7,8 @@
 		insert into club_user(clubno,userid)
 		values((select count(clubno) from club_info),#{userid})
 		</insert>
+		
+		<select id="AFFILIATEDCLUB" resultType="Integer" parameterType="String">
+			select clubno from club_user where userid=#{userid}
+		</select>
 </mapper>

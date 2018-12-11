@@ -35,8 +35,12 @@
 	
 	
 	
-	<select id="myCLUB" resultType="clubInfo" parameterType="String">
+	<select id="MYCLUB" resultType="clubInfo" parameterType="Integer">
 		select clubname,clubdesc,clubimage from club_info 
-		where userid=#{userid};
+		where clubno=#{clubno};
 	</select>
+	
+	<insert id="CREATECLUB" parameterType="clubInfo">
+		insert into club_info(clubname,clubimage,)
+	</insert>
 </mapper>

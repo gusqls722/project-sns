@@ -17,38 +17,39 @@ public class ClubInfoDAOImpl implements ClubInfoDAO{
 	
 	@Override
 	public List<ClubInfo> setClubInfoList() {
-		// TODO Auto-generated method stub
 		return ss.selectList("com.sns.sp.CLUBINFO.CLUBINFOLIST");
 	}
 
 	@Override
 	public ClubInfo setClubInfoOne(int clubno) {
-		// TODO Auto-generated method stub
-		return ss.selectOne("com.sns.sp.CLUBINFO.CLUBINFOONE");
+		return ss.selectOne("com.sns.sp.CLUBINFO.CLUBINFOONE", clubno);
 	}
 
 	@Override
 	public Integer insertClubInfo(ClubInfo clubInfo) {
-		// TODO Auto-generated method stub
 		return ss.insert("com.sns.sp.CLUBINFO.INSERTCLUBINFO",clubInfo);
 	}
 
 	@Override
 	public Integer updateClubInfo(ClubInfo clubInfo) {
-		// TODO Auto-generated method stub
 		return ss.update("com.sns.sp.CLUBINFO.UPDATECLUBINFO",clubInfo);
 	}
 
 	@Override
 	public Integer deleteClubInfo(int clubno) {
-		// TODO Auto-generated method stub
 		return ss.delete("com.sns.sp.CLUBINFO.DELETECLUBINFO",clubno);
 	}
 
+	
+	
 	@Override
-	public List<ClubInfo> myClub(String userid) {
-		// TODO Auto-generated method stub
-		return ss.selectList("com.sns.sp.CLUBINFO.myCLUB",userid);
+	public ClubInfo myClub(int clubno) {
+		return ss.selectOne("com.sns.sp.CLUBINFO.MYCLUB",clubno);
+	}
+
+	@Override
+	public Integer createClub(ClubInfo clubinfo) {
+		return ss.insert("com.sns.sp.CLUBINFO.CREATECLUB",clubinfo);
 	}
 
 }

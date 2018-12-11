@@ -1,5 +1,6 @@
 package com.sns.sp.service.Impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sns.sp.dao.ClubInfoDAO;
+import com.sns.sp.dao.ClubUserDAO;
 import com.sns.sp.service.ClubInfoService;
 import com.sns.sp.vo.ClubInfo;
 import com.sns.sp.vo.UserInfo;
@@ -17,6 +19,10 @@ public class ClubInfoServiceImpl implements ClubInfoService{
 
 	@Autowired
 	private ClubInfoDAO cidao;
+	
+	@Autowired
+	private ClubUserDAO cudao;
+	
 	@Override
 	public List<ClubInfo> setClubInfoList() {
 		// TODO Auto-generated method stub
@@ -52,7 +58,12 @@ public class ClubInfoServiceImpl implements ClubInfoService{
 	public List<ClubInfo> myClub(HttpSession hs) {
 		UserInfo userinfo = (UserInfo) hs.getAttribute("user");
 		String userid = userinfo.getUserid();
-		return cidao.myClub(userid);
+		List<Integer> affiliatedClub = cudao.affiliatedClub(userid);
+		List<ClubInfo> myClubList = new ArrayList<ClubInfo>();
+		for(int affil:affiliatedClub) {
+			myClubList.add(cidao.myClub(affil));
+		}
+		return myClubList;
 	}
 
 }

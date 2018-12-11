@@ -94,7 +94,7 @@
 <script>
   window.addEventListener('load',function(){
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET','/cis');
+	xhr.open('GET','/clubinfos');
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState==4){
 			if(xhr.status==200){

@@ -12,8 +12,7 @@ public interface ClubInfoDAO {
 	public Integer updateClubInfo(ClubInfo clubInfo);
 	public Integer deleteClubInfo(int clubno);
 	
+	public ClubInfo myClub(int clubno);
+	public Integer createClub(ClubInfo clubinfo);
 	
-	
-	
-	public List<ClubInfo> myClub(String userid);
 }

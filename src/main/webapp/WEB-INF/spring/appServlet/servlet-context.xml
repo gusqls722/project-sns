@@ -22,5 +22,13 @@
 	
 	<context:component-scan base-package="com.sns.sp.controller" />
 	
+	<!-- 파일 업로드관련 maxUploadSize 값을 11000000 으로 했는데 이는 10MB 정도를 의미 -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="11000000"></beans:property>
+	</beans:bean>
 	
+	<beans:bean id = "uploadPath" class="java.lang.String">
+	<beans:constructor-arg value="C:\Users\gusql\git\project-sns\src\main\resources" />
+	</beans:bean>
 </beans:beans>
