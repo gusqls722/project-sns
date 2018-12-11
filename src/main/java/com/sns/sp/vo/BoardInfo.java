@@ -7,8 +7,8 @@ public class BoardInfo {
 
 	private Integer boardno;
 	private String boardtext;
-	private String boardimage;
-	private Integer boardlike;
+	private String boardfile;
+	private Integer boardlikecount;
 	private Integer boardcommentcount;
 	private Integer boardvisit;
 	private String boardcredat;		// date     
@@ -27,17 +27,17 @@ public class BoardInfo {
 	public void setBoardtext(String boardtext) {
 		this.boardtext = boardtext;
 	}
-	public String getBoardimage() {
-		return boardimage;
+	public String getBoardfile() {
+		return boardfile;
 	}
-	public void setBoardimage(String boardimage) {
-		this.boardimage = boardimage;
+	public void setBoardfile(String boardfile) {
+		this.boardfile = boardfile;
 	}
-	public Integer getBoardlike() {
-		return boardlike;
+	public Integer getBoardlikecount() {
+		return boardlikecount;
 	}
-	public void setBoardlike(Integer boardlike) {
-		this.boardlike = boardlike;
+	public void setBoardlikecount(Integer boardlikecount) {
+		this.boardlikecount = boardlikecount;
 	}
 	public Integer getBoardcommentcount() {
 		return boardcommentcount;
@@ -77,9 +77,11 @@ public class BoardInfo {
 	}
 	@Override
 	public String toString() {
-		return "boardInfo [boardno=" + boardno + ", boardtext=" + boardtext + ", boardimage=" + boardimage
-				+ ", boardlike=" + boardlike + ", boardcommentcount=" + boardcommentcount + ", boardvisit=" + boardvisit
-				+ ", boardcredat=" + boardcredat + ", boardmoddat=" + boardmoddat + ", userno=" + userno + ", clubno="
-				+ clubno + "]";
-	}	
+		return "BoardInfo [boardno=" + boardno + ", boardtext=" + boardtext + ", boardfile=" + boardfile
+				+ ", boardlikecount=" + boardlikecount + ", boardcommentcount=" + boardcommentcount + ", boardvisit="
+				+ boardvisit + ", boardcredat=" + boardcredat + ", boardmoddat=" + boardmoddat + ", userno=" + userno
+				+ ", clubno=" + clubno + "]";
+	}
+	
+	
 }

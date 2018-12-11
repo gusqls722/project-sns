@@ -1,4 +1,4 @@
-package com.sns.sp.controller;
+package com.sns.sp.controller.exam;
 
 import java.util.List;
 

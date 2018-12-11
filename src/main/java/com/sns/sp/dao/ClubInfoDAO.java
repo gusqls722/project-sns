@@ -6,10 +6,14 @@ import com.sns.sp.vo.ClubInfo;
 
 public interface ClubInfoDAO {
 
-	public List<ClubInfo> selectclubInfoList();
-	public List<ClubInfo> selectclubInfoListTop();
-	public ClubInfo selectclubInfoOne(int cino);
-	public Integer insertclubInfo(ClubInfo ci);
-	public Integer updateclubInfo(ClubInfo ci);
-	public Integer deleteclubInfo(int cino);
+	public List<ClubInfo> setClubInfoList();
+	public ClubInfo setClubInfoOne(int clubno);
+	public Integer insertClubInfo(ClubInfo clubInfo);
+	public Integer updateClubInfo(ClubInfo clubInfo);
+	public Integer deleteClubInfo(int clubno);
+	
+	
+	
+	
+	public List<ClubInfo> myClub(String userid);
 }

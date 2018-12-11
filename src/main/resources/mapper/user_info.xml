@@ -27,7 +27,7 @@
 		select useremail from user_info where useremail=#{useremail} 
 	</select>
 	
-	<insert id="insertUSERINFO" parameterType="userInfo">
+	<insert id="registerUSERINFO" parameterType="userInfo">
 		insert into user_info(userid,userpwd,username,useremail,userbirth,usergender)
 		values(#{userid},#{userpwd},#{username},#{useremail},#{userbirth},#{usergender})
 	</insert>

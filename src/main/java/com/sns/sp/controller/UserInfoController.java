@@ -39,9 +39,9 @@ public class UserInfoController {
 	}
 	
 	@PostMapping(value="/uis")
-	public @ResponseBody Map<String,String> insertuserInfo(@RequestBody UserInfo ui) {
+	public @ResponseBody Map<String,String> registerUserInfo(@RequestBody UserInfo ui) {
 		Map<String,String> rMap = new HashMap<String,String>();
-		return us.insertuserInfo(ui,rMap);
+		return us.registerUserInfo(ui,rMap);
 	}
 	
 	@PutMapping(value="/uis/{userno}")

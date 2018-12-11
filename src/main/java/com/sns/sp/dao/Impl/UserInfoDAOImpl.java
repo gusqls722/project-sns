@@ -31,8 +31,8 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	}
 
 	@Override
-	public Integer insertuserInfo(UserInfo ui) {
-		return ss.insert("com.sns.sp.USERINFO.insertUSERINFO",ui);
+	public Integer registerUserInfo(UserInfo ui) {
+		return ss.insert("com.sns.sp.USERINFO.registerUSERINFO",ui);
 	}
 
 	@Override

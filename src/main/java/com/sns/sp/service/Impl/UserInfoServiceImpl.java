@@ -29,8 +29,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 		
 	@Override
-	public Map<String,String> insertuserInfo(UserInfo ui,Map<String,String> rMap) {
-		if(udao.insertuserInfo(ui)==1) {
+	public Map<String,String> registerUserInfo(UserInfo ui,Map<String,String> rMap) {
+		if(udao.registerUserInfo(ui)==1) {
 			rMap.put("reg", "success");
 			rMap.put("msg", "회원가입이 되셨습니다.");
 		}else {
