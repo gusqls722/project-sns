@@ -56,13 +56,13 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-      <h3>회원수 TOP5</h3>
+      <h3>내 클럽</h3>
       <table class="table" style="margin-top:15px">
       <thead>
 		      <tr>
 			        <th>클럽명</th>
 			        <th>클럽 설명</th>
-			        <th>회원수</th>
+			        <th>클럽이미지</th>
 		      </tr>
       </thead>
       <tbody id="ciBody">
@@ -114,7 +114,7 @@
   window.addEventListener('load',function(){
 	
     var xhr = new XMLHttpRequest();
-	xhr.open('GET','/cis/top5');
+	xhr.open('GET','/clubinfos/member');
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState==4){
 			if(xhr.status==200){
@@ -124,7 +124,7 @@
 					html += '<tr>';
 					html += '<td>'+ci.clubname+'</td>';
 					html += '<td>'+ci.clubdesc+'</td>';
-					html += '<td>'+ci.clubUC+'</td>';
+					html += '<td>'+ci.clubimage+'</td>';
 					html += '</tr>';
 				}
 				

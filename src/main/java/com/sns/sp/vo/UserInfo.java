@@ -12,7 +12,8 @@ public class UserInfo {
 	private String useremail;
 	private String userbirth;
 	private String usergender;
-	
+	private String usercategory;
+	private String userdesc;
 	public Integer getUserno() {
 		return userno;
 	}
@@ -55,10 +56,24 @@ public class UserInfo {
 	public void setUsergender(String usergender) {
 		this.usergender = usergender;
 	}
+	public String getUsercategory() {
+		return usercategory;
+	}
+	public void setUsercategory(String usercategory) {
+		this.usercategory = usercategory;
+	}
+	public String getUserdesc() {
+		return userdesc;
+	}
+	public void setUserdesc(String userdesc) {
+		this.userdesc = userdesc;
+	}
+	
 	@Override
 	public String toString() {
-		return "userInfo [userno=" + userno + ", userid=" + userid + ", userpwd=" + userpwd + ", username=" + username
-				+ ", useremail=" + useremail + ", userbirth=" + userbirth + ", usergender=" + usergender + "]";
+		return "UserInfo [userno=" + userno + ", userid=" + userid + ", userpwd=" + userpwd + ", username=" + username
+				+ ", useremail=" + useremail + ", userbirth=" + userbirth + ", usergender=" + usergender
+				+ ", usercategory=" + usercategory + ", userdesc=" + userdesc + "]";
 	}
 	
 	

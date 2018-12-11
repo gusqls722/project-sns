@@ -1,62 +1,58 @@
 package com.sns.sp.service.Impl;
 
 import java.util.List;
-import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sns.sp.dao.ClubInfoDAO;
-import com.sns.sp.dao.ClubUserDAO;
 import com.sns.sp.service.ClubInfoService;
 import com.sns.sp.vo.ClubInfo;
+import com.sns.sp.vo.UserInfo;
 
 @Service
-public class ClubInfoServiceImpl implements ClubInfoService {
+public class ClubInfoServiceImpl implements ClubInfoService{
 
 	@Autowired
 	private ClubInfoDAO cidao;
-	@Autowired
-	private ClubUserDAO cudao;
-	
 	@Override
-	public List<ClubInfo> selectclubInfoList() {
-		
-		return cidao.selectclubInfoList();
+	public List<ClubInfo> setClubInfoList() {
+		// TODO Auto-generated method stub
+		return cidao.setClubInfoList();
 	}
 
 	@Override
-	public List<ClubInfo> selectclubInfoListTop() {
-		return cidao.selectclubInfoListTop();
-	}
-	
-	@Override
-	public ClubInfo selectclubInfoOne(int cino) {
-		return cidao.selectclubInfoOne(cino);
-	}
-	
-	@Override
-	public Map<String,String> insertclubInfo(ClubInfo ci, Map<String,String> rMap) {
-		 rMap.put("reg", "fail");
-		 rMap.put("msg", "클럽이 만들어지지 않았습니다.");
-		 int rs = cidao.insertclubInfo(ci);
-		 int rs2 = cudao.insertclubUser(ci);
-		 if(rs==1 && rs2==1) {
-			 rMap.put("reg", "fail");
-			 rMap.put("msg", "클럽이 정상적으로 만들어졌습니다.");
-			 
-		 }
-		 return rMap;
+	public ClubInfo setClubInfoOne(int clubno) {
+		// TODO Auto-generated method stub
+		return cidao.setClubInfoOne(clubno);
 	}
 
 	@Override
-	public Integer updateclubInfo(ClubInfo ci) {
-		return cidao.updateclubInfo(ci);
+	public Integer insertClubInfo(ClubInfo clubInfo) {
+		// TODO Auto-generated method stub
+		return cidao.insertClubInfo(clubInfo);
 	}
 
 	@Override
-	public Integer deleteclubInfo(int cino) {
-		return cidao.deleteclubInfo(cino);
+	public Integer updateClubInfo(ClubInfo clubInfo) {
+		// TODO Auto-generated method stub
+		return cidao.updateClubInfo(clubInfo);
+	}
+
+	@Override
+	public Integer deleteClubInfo(int clubno) {
+		// TODO Auto-generated method stub
+		return cidao.deleteClubInfo(clubno);
+	}
+	
+	
+	@Override
+	public List<ClubInfo> myClub(HttpSession hs) {
+		UserInfo userinfo = (UserInfo) hs.getAttribute("user");
+		String userid = userinfo.getUserid();
+		return cidao.myClub(userid);
 	}
 
 }

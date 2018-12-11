@@ -39,9 +39,9 @@ public class UserInfoController {
 	}
 	
 	@PostMapping(value="/uis")
-	public @ResponseBody Map<String,String> insertuserInfo(@RequestBody UserInfo ui) {
+	public @ResponseBody Map<String,String> registerUserInfo(@RequestBody UserInfo ui) {
 		Map<String,String> rMap = new HashMap<String,String>();
-		return us.insertuserInfo(ui,rMap);
+		return us.registerUserInfo(ui,rMap);
 	}
 	
 	@PutMapping(value="/uis/{userno}")
@@ -71,14 +71,25 @@ public class UserInfoController {
 		return "login/login-register";
 	}
 	
-	@GetMapping(value="/uis/mail/{userid}")
-	public @ResponseBody Map<String,String> mailcheck(@PathVariable String userid){
-		System.out.print(userid);
+	@GetMapping(value="/uis/midcheck/{userid}")
+	public @ResponseBody Map<String,String> midcheck(@PathVariable String userid,HttpServletRequest req){
 		Map<String,String> rMap = new HashMap<String,String>();
-		us.emailcheck(userid, rMap);
+		us.midcheck(userid, rMap, req);
 		return rMap;
 	}
 	
+	@GetMapping(value="/uis/mail")
+	public @ResponseBody Map<String,String> mailcheck(@RequestParam("useremail") String useremail
+			, HttpServletRequest req, HttpSession session){
+		session = req.getSession(false);
+		System.out.println(session.getAttribute("userid"));
+		System.out.print(useremail);
+		Map<String,String> rMap = new HashMap<String,String>();
+		us.emailcheck(useremail, rMap, session);
+		return rMap;
+	}
+	
+		
 	@GetMapping(value="/uis/session")
 	public @ResponseBody Map<String,String> sessioncheck(HttpServletRequest req, HttpSession session){
 		session = req.getSession(false);

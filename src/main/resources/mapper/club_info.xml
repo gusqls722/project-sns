@@ -7,17 +7,13 @@
 		select * from club_info;
 	</select>
 	
-	<select id="CLUBINFOLISTTOP" resultType="clubInfo">
-		select * from club_info order by clubUC limit 5;
-	</select>
-	
 	<select id="CLUBINFOONE" resultType="clubInfo" parameterType="int">
 		select * from club_info where clubno=#{clubno}
 	</select>
 	
 	<insert id="insertCLUBINFO" parameterType="clubInfo">
-		insert into club_info(clubname,clubdesc,clubUC,userid)
-		values(#{clubname},#{clubdesc},#{clubUC},#{userid})
+		insert into club_info(clubname,clubdesc,clubUC,clubcredat,clubimage,userid)
+		values(#{clubname},#{clubdesc},#{clubUC},#{clubcredat},#{clubimage},#{userid})
 	</insert>
 	
 	<update id="updateCLUBINFO" parameterType="clubInfo">
@@ -26,6 +22,8 @@
 			<if test="clubname!=null">clubname=#{clubname},</if>
 			<if test="clubdesc!=null">clubdesc=#{clubdesc},</if>
 			<if test="clubUC!=null">clubUC=#{clubUC},</if>
+			<if test="clubcredat!=null">clubcredat=#{clubcredat},</if>
+			<if test="clubimage!=null">clubimage=#{clubimage},</if>
 			<if test="userid!=null">userid=#{userid},</if>
 			where clubno=#{clubno}
 		</set>
@@ -34,4 +32,11 @@
 	<delete id="deleteCLUBINFO" parameterType="int">
 		delete from club_info where clubno=#{clubno}
 	</delete>
+	
+	
+	
+	<select id="myCLUB" resultType="clubInfo" parameterType="String">
+		select clubname,clubdesc,clubimage from club_info 
+		where userid=#{userid};
+	</select>
 </mapper>

@@ -16,6 +16,10 @@
 		select * from user_info where userid=#{userid}
 	</select>
 	
+	<select id="eidCheck" resultType="String" parameterType="String">
+		select userid from user_info where userid=#{userid}
+	</select>
+	
 	<select id="emailCheck" resultType="String" parameterType="String">
 		select useremail from user_info where userid=#{userid}
 	</select>
@@ -23,7 +27,7 @@
 		select useremail from user_info where useremail=#{useremail} 
 	</select>
 	
-	<insert id="insertUSERINFO" parameterType="userInfo">
+	<insert id="registerUSERINFO" parameterType="userInfo">
 		insert into user_info(userid,userpwd,username,useremail,userbirth,usergender)
 		values(#{userid},#{userpwd},#{username},#{useremail},#{userbirth},#{usergender})
 	</insert>

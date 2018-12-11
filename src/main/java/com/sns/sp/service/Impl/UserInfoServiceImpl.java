@@ -29,8 +29,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 		
 	@Override
-	public Map<String,String> insertuserInfo(UserInfo ui,Map<String,String> rMap) {
-		if(udao.insertuserInfo(ui)==1) {
+	public Map<String,String> registerUserInfo(UserInfo ui,Map<String,String> rMap) {
+		if(udao.registerUserInfo(ui)==1) {
 			rMap.put("reg", "success");
 			rMap.put("msg", "회원가입이 되셨습니다.");
 		}else {
@@ -93,22 +93,44 @@ public class UserInfoServiceImpl implements UserInfoService {
 		}
 		return rMap;
 	}
-	
 	@Override
-	public Map<String, String> emailcheck(String userid, Map<String, String> rMap) {
-		rMap.put("reg", "fail");
-		rMap.put("msg", "아이디가 존재하지 않습니다.");
-		rMap.put("value", "1");
-		if(udao.emailCheck(userid)!=null) {
-			String email = udao.emailCheck(userid);
-			String newPwd= MessageSender.sendmail(email);
-			udao.changePwd(newPwd, userid);
+	public Map<String, String> midcheck(String userid, Map<String, String> rMap, HttpServletRequest req) {
+		HttpSession session= req.getSession();
+
+		if(udao.idCheck(userid)==null) {
+			rMap.put("reg", "fail");
+			rMap.put("msg", "존재하지 않는 아이디 입니다.");
+			rMap.put("value", "1");
+			return rMap;
+		}else if(udao.idCheck(userid)!=null) {
+			session.setAttribute("userid", userid);
 			rMap.put("reg", "success");
-			rMap.put("msg", email+"등록하신 이메일로 메일을 전송하였습니다.");
+			rMap.put("value", "0");
+		}
+		return rMap;
+	}
+	@Override
+	public Map<String, String> emailcheck(String useremail, Map<String, String> rMap, HttpSession session) {
+		if(session.getAttribute("userid")!=null) {
+		rMap.put("reg", "fail");
+		rMap.put("msg", "이메일이 다릅니다.");
+		rMap.put("value", "1");
+		if(udao.emailCheck((String)session.getAttribute("userid"))==null) {
+			String email = udao.emailCheck(useremail);
+			String newPwd= MessageSender.sendmail(useremail);
+			udao.changePwd(newPwd, useremail);
+			rMap.put("reg", "success");
+			rMap.put("msg", useremail+"등록하신 이메일로 메일을 전송하였습니다.");
 			rMap.put("value", "0");
 		}
 
 		return rMap;
+		}else {
+			rMap.put("reg", "fail");
+			rMap.put("msg", "세션없음");
+			rMap.put("value", "1");
+			return rMap;
+		}
 	}
 	@Override
 	public Map<String, String> sessioncheck(Map<String, String> rMap, HttpSession session) {
@@ -139,6 +161,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		}
 		return rMap;
 	}
+	
 	
 
 }

@@ -1,25 +1,20 @@
 package com.sns.sp.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import static org.hamcrest.CoreMatchers.nullValue;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sns.sp.service.ClubInfoService;
 import com.sns.sp.vo.ClubInfo;
-import com.sns.sp.vo.UserInfo;
 
 @Controller
 public class ClubInfoController {
@@ -27,43 +22,14 @@ public class ClubInfoController {
 	@Autowired
 	private ClubInfoService cis;
 	
-	@GetMapping(value="/cis")
-	public @ResponseBody List<ClubInfo> getclubInfoList(@ModelAttribute ClubInfo c){
-		
-		return cis.selectclubInfoList();
+	@GetMapping("/clubinfos")
+	public @ResponseBody List<ClubInfo> getClubInfoList(@ModelAttribute ClubInfo clubinfo){
+		return cis.setClubInfoList();
 	}
 	
-	@GetMapping(value="/cis/top5")
-	public @ResponseBody List<ClubInfo> getclubInfoListTop5(@ModelAttribute ClubInfo c){
-		return cis.selectclubInfoListTop();
+	@GetMapping("/clubinfos/member")
+	public @ResponseBody List<ClubInfo> myClubList(@ModelAttribute ClubInfo clubinfo, HttpSession hs, HttpServletRequest req){
+		hs = req.getSession();
+		return cis.myClub(hs);
 	}
-	
-	@GetMapping("/cis/{cino}")
-	public @ResponseBody ClubInfo getclubInfoOne(@PathVariable int cino){
-		return cis.selectclubInfoOne(cino);			
-	}
-	
-	@PostMapping(value="/cis")
-	public @ResponseBody Map<String,String> insertclubInfo(@RequestBody ClubInfo ci,HttpSession hs){
-		Map<String,String> rMap = new HashMap<String,String>();
-		UserInfo uivo = (UserInfo) hs.getAttribute("user");
-		ci.setUserid(uivo.getUserid());
-		ci.setClubUC(1);
-		cis.insertclubInfo(ci, rMap);
-		return rMap;
-	}
-	
-	@PutMapping(value="/cis/{clubno}")
-	public @ResponseBody Integer updateclubInfo(@RequestBody ClubInfo ci, @PathVariable int cino){
-		ci.setClubno(cino);
-		return cis.updateclubInfo(ci);
-	}
-	
-	@DeleteMapping(value="/cis/{clubno}")
-	public @ResponseBody Integer deleteclubInfo(@PathVariable int cino){
-		return cis.deleteclubInfo(cino);
-	}
-	
-
-	
 }
