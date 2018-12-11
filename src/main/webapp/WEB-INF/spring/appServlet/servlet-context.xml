@@ -29,6 +29,6 @@
 	</beans:bean>
 	
 	<beans:bean id = "uploadPath" class="java.lang.String">
-	<beans:constructor-arg value="C:\Users\gusql\git\project-sns\src\main\resources" />
+	<beans:constructor-arg value="C:\Users\gusql\git\project-sns\src\main\resources/ClubImage" />
 	</beans:bean>
 </beans:beans>
