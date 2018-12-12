@@ -1,6 +1,7 @@
 package com.sns.sp.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,4 +17,5 @@ public interface ClubInfoService {
 	
 	
 	public List<ClubInfo> myClub(HttpSession hs);
+	public Map<String,String> createClub(ClubInfo clubinfo, Map<String,String> rMap);
 }

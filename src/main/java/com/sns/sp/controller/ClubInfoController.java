@@ -40,7 +40,7 @@ public class ClubInfoController {
 	@PostMapping("/clubinfos/create")	// 클럽만들기
 	public @ResponseBody Map<String,String> createClub(@RequestBody ClubInfo clubinfo){
 		Map<String,String> rMap = new HashMap<String,String>();
-		
+		cis.createClub(clubinfo, rMap);
 		return rMap;
 	}
 }

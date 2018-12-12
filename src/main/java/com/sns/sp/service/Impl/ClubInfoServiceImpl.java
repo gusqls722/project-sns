@@ -2,6 +2,7 @@ package com.sns.sp.service.Impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -64,6 +65,19 @@ public class ClubInfoServiceImpl implements ClubInfoService{
 			myClubList.add(cidao.myClub(affil));
 		}
 		return myClubList;
+	}
+
+	@Override
+	public Map<String, String> createClub(ClubInfo clubinfo, Map<String,String> rMap) {
+		Integer cc= cidao.createClub(clubinfo);
+		if(cc==1) {
+			rMap.put("res", "success");
+			rMap.put("msg", "클럽이 정상적으로 만들어졌습니다.");
+		}else {
+			rMap.put("res", "fail");
+			rMap.put("msg", "클럽생성실패");
+		}
+		return rMap;
 	}
 
 }
