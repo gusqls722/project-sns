@@ -18,4 +18,5 @@ public interface ClubInfoService {
 	
 	public List<ClubInfo> myClub(HttpSession hs);
 	public Map<String,String> createClub(ClubInfo clubinfo, Map<String,String> rMap);
+	public ClubInfo JoinClub(int clubno,HttpSession hs);
 }

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,5 +43,11 @@ public class ClubInfoController {
 		Map<String,String> rMap = new HashMap<String,String>();
 		cis.createClub(clubinfo, rMap);
 		return rMap;
+	}
+	
+	@GetMapping("/clubinfos/club/{clubno}") // 클럽 들어가기
+	public @ResponseBody ClubInfo joinClub(@PathVariable int clubno, HttpSession hs, HttpServletRequest req){
+		hs=req.getSession();
+		return cis.JoinClub(clubno, hs);
 	}
 }

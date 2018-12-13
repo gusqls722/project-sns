@@ -43,4 +43,9 @@
 	<insert id="CREATECLUB" parameterType="clubInfo">
 		insert into club_info(clubname,clubimage,)
 	</insert>
+	
+	<select id="JOINCLUB" resultType="clubInfo" parameterType="Integer">
+		select * from club_info
+		where clubno=#{clubno};
+	</select>
 </mapper>

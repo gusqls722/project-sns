@@ -80,4 +80,20 @@ public class ClubInfoServiceImpl implements ClubInfoService{
 		return rMap;
 	}
 
+	@Override
+	public ClubInfo JoinClub(int clubno, HttpSession hs) {	// 클럽들어가기
+		ClubInfo clubinfo = new ClubInfo();
+		UserInfo userinfo = (UserInfo) hs.getAttribute("user");
+		String userid = userinfo.getUserid();
+		List<Integer> affiliatedClub = cudao.affiliatedClub(userid);
+		for(int affil:affiliatedClub) {
+			if(affil==clubno) {		// 유저가 들어간 클럽의 회원일때
+				clubinfo=cidao.JoinClub(clubno);
+			}else {			// 아닐때 해줘야함
+				clubinfo=cidao.JoinClub(clubno);
+			}
+		}
+		return clubinfo;
+	}
+
 }

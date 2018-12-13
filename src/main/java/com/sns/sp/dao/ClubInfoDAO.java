@@ -14,5 +14,5 @@ public interface ClubInfoDAO {
 	
 	public ClubInfo myClub(int clubno);
 	public Integer createClub(ClubInfo clubinfo);
-	
+	public ClubInfo JoinClub(int clubno);
 }

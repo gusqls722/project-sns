@@ -52,4 +52,9 @@ public class ClubInfoDAOImpl implements ClubInfoDAO{
 		return ss.insert("com.sns.sp.CLUBINFO.CREATECLUB",clubinfo);
 	}
 
+	@Override
+	public ClubInfo JoinClub(int clubno) {
+		return ss.selectOne("com.sns.sp.CLUBINFO.JOINCLUB",clubno);
+	}
+
 }
