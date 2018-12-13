@@ -46,8 +46,11 @@ public class ClubInfoController {
 	}
 	
 	@GetMapping("/clubinfos/club/{clubno}") // 클럽 들어가기
-	public @ResponseBody ClubInfo joinClub(@PathVariable int clubno, HttpSession hs, HttpServletRequest req){
+	public String joinClub(@PathVariable int clubno, HttpSession hs, HttpServletRequest req){
 		hs=req.getSession();
-		return cis.JoinClub(clubno, hs);
+		Map<String,String> rMap = new HashMap<String,String>();
+		cis.JoinClub(clubno, hs, rMap);
+		hs.setAttribute("rMap", rMap);
+		return "club/clubmain" ;
 	}
 }

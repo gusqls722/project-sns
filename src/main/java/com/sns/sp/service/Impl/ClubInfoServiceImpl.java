@@ -81,19 +81,38 @@ public class ClubInfoServiceImpl implements ClubInfoService{
 	}
 
 	@Override
-	public ClubInfo JoinClub(int clubno, HttpSession hs) {	// 클럽들어가기
+	public HttpSession JoinClub(int clubno, HttpSession hs, Map<String,String> rMap) {	// 클럽들어가기
+		if(cidao.setClubInfoOne(clubno).getClubno()==null) {
+			rMap.put("res", "fail");
+			rMap.put("msg", "삭제되었거나 존재하지않는 클럽입니다.");
+			return hs;
+		}
 		ClubInfo clubinfo = new ClubInfo();
+		clubinfo=cidao.JoinClub(clubno);
 		UserInfo userinfo = (UserInfo) hs.getAttribute("user");
+		if(userinfo==null) {
+			rMap.put("res", "fail");
+			rMap.put("msg", "아이디 세션이 없습니다.");
+			return hs;
+		}
 		String userid = userinfo.getUserid();
 		List<Integer> affiliatedClub = cudao.affiliatedClub(userid);
 		for(int affil:affiliatedClub) {
-			if(affil==clubno) {		// 유저가 들어간 클럽의 회원일때
-				clubinfo=cidao.JoinClub(clubno);
-			}else {			// 아닐때 해줘야함
-				clubinfo=cidao.JoinClub(clubno);
+			if(affil==clubno) {
+				rMap.put("res", "success");
+				rMap.put("msg","해당 클럽 유저이십니다.");
+				rMap.put("member", "1");
+				hs.setAttribute("clubinfo", clubinfo);
+				return hs;
+			}else {
+				rMap.put("res", "success");
+				rMap.put("msg", "해당 클럽 유저가 아니십니다.");
+				rMap.put("member", "0");
 			}
 		}
-		return clubinfo;
+		clubinfo=cidao.JoinClub(clubno);
+		hs.setAttribute("clubinfo", clubinfo);
+		return hs;
 	}
 
 }

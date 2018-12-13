@@ -105,7 +105,7 @@
 					html += '<td>'+ci.clubname+'</td>';
 					html += '<td>'+ci.clubdesc+'</td>';
 					html += '<td>'+ci.clubUC+'</td>';
-					html += '<td><a href="/cis/'+ci.clubno+'">more</td>';
+					html += '<td><a href="/clubinfos/club/'+ci.clubno+'">more</td>';
 					html += '</tr>';
 				}
 				
