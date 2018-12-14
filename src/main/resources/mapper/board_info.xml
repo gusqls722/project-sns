@@ -35,4 +35,9 @@
 	<delete id="deleteBOARDINFO" parameterType="int">
 		delete from board_info where boardno=#{boardno}
 	</delete>
+	
+	
+	<select id="POPULARBOARDINFO" resultType="boardInfo">
+		select * from board_info order by boardlikecount desc limit 2 
+	</select>
 </mapper>

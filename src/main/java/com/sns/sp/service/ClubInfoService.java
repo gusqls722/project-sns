@@ -9,8 +9,8 @@ import com.sns.sp.vo.ClubInfo;
 
 public interface ClubInfoService {
 
-	public List<ClubInfo> setClubInfoList();
-	public ClubInfo setClubInfoOne(int clubno);
+	public List<ClubInfo> selectClubInfoList();
+	public ClubInfo selectClubInfoOne(int clubno);
 	public Integer insertClubInfo(ClubInfo clubInfo);
 	public Integer updateClubInfo(ClubInfo clubInfo);
 	public Integer deleteClubInfo(int clubno);

@@ -29,10 +29,10 @@ public class ClubInfoController {
 	
 	@GetMapping("/clubinfos")
 	public @ResponseBody List<ClubInfo> getClubInfoList(@ModelAttribute ClubInfo clubinfo){
-		return cis.setClubInfoList();
+		return cis.selectClubInfoList();
 	}
 	
-	@GetMapping("/clubinfos/member")	// (메인페이지) 내가 가입한 클럽 리스트
+	@GetMapping("/clubinfos/main/member")	// (메인페이지) 내가 가입한 클럽 리스트
 	public @ResponseBody List<ClubInfo> myClubList(@ModelAttribute ClubInfo clubinfo, HttpSession hs, HttpServletRequest req){
 		hs = req.getSession();
 		return cis.myClub(hs);

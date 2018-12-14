@@ -16,12 +16,12 @@ public class ClubInfoDAOImpl implements ClubInfoDAO{
 	private SqlSession ss;
 	
 	@Override
-	public List<ClubInfo> setClubInfoList() {
+	public List<ClubInfo> selectClubInfoList() {
 		return ss.selectList("com.sns.sp.CLUBINFO.CLUBINFOLIST");
 	}
 
 	@Override
-	public ClubInfo setClubInfoOne(int clubno) {
+	public ClubInfo selectClubInfoOne(int clubno) {
 		return ss.selectOne("com.sns.sp.CLUBINFO.CLUBINFOONE", clubno);
 	}
 

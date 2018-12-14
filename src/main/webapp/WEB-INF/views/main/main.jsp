@@ -114,7 +114,7 @@
   window.addEventListener('load',function(){
 	
     var xhr = new XMLHttpRequest();
-	xhr.open('GET','/clubinfos/member');
+	xhr.open('GET','/clubinfos/main/member');
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState==4){
 			if(xhr.status==200){

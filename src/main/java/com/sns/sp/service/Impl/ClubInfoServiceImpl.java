@@ -25,15 +25,15 @@ public class ClubInfoServiceImpl implements ClubInfoService{
 	private ClubUserDAO cudao;
 	
 	@Override
-	public List<ClubInfo> setClubInfoList() {
+	public List<ClubInfo> selectClubInfoList() {
 		// TODO Auto-generated method stub
-		return cidao.setClubInfoList();
+		return cidao.selectClubInfoList();
 	}
 
 	@Override
-	public ClubInfo setClubInfoOne(int clubno) {
+	public ClubInfo selectClubInfoOne(int clubno) {
 		// TODO Auto-generated method stub
-		return cidao.setClubInfoOne(clubno);
+		return cidao.selectClubInfoOne(clubno);
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class ClubInfoServiceImpl implements ClubInfoService{
 
 	@Override
 	public HttpSession JoinClub(int clubno, HttpSession hs, Map<String,String> rMap) {	// 클럽들어가기
-		if(cidao.setClubInfoOne(clubno).getClubno()==null) {
+		if(cidao.selectClubInfoOne(clubno).getClubno()==null) {
 			rMap.put("res", "fail");
 			rMap.put("msg", "삭제되었거나 존재하지않는 클럽입니다.");
 			return hs;

@@ -38,5 +38,12 @@ public class BoardInfoDAOImpl implements BoardInfoDAO {
 	public Integer deleteboardInfo(int boardno) {
 		return ss.delete("com.sns.sp.BOARDINFO.deleteBOARDINFO",boardno);
 	}
+	
+	
+
+	@Override
+	public List<BoardInfo> popularBoardInfo() {
+		return ss.selectList("com.sns.sp.BOARDINFO.POPULARBOARDINFO");
+	}
 
 }

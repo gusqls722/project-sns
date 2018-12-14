@@ -38,5 +38,12 @@ public class BoardInfoServiceImpl implements BoardInfoService{
 	public Integer deleteboardInfo(int boardno) {
 		return bdao.deleteboardInfo(boardno);
 	}
+	
+	
+
+	@Override
+	public List<BoardInfo> popularBoardInfo() {
+		return bdao.popularBoardInfo();
+	}
 
 }
