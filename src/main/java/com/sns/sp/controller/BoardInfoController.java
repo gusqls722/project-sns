@@ -18,7 +18,7 @@ import com.sns.sp.vo.BoardInfo;
 public class BoardInfoController {
 
 	@Autowired
-	private BoardInfoService bs;
+	private BoardInfoService bis;
 	
 	@GetMapping("/boardinfos")
 	public @ResponseBody List<BoardInfo> selectBoardInfo(@ModelAttribute BoardInfo boardinfo){
@@ -33,11 +33,11 @@ public class BoardInfoController {
 	
 	@GetMapping(value="/boardinfos/{boardno}")
 	public @ResponseBody BoardInfo getboardInfoOne(@PathVariable int boardno) {
-		return bs.selectboardInfoOne(boardno);
+		return bis.selectboardInfoOne(boardno);
 	}
 	
 	@PostMapping(value="/boardinfos")
 	public @ResponseBody Integer insertboardInfo(@RequestBody BoardInfo bi) {
-		return bs.insertboardInfo(bi);
+		return bis.insertboardInfo(bi);
 	}
 }
