@@ -17,8 +17,18 @@ public class BoardInfoController {
 	@Autowired
 	private BoardInfoService bis;
 	
+	@GetMapping("/boardinfos")
+	public @ResponseBody List<BoardInfo> selectBoardInfo(@ModelAttribute BoardInfo boardinfo){
+		return bis.selectboardInfoList();
+	}
+	
+	
 	@GetMapping("/boardinfos/main/popular")			// 메인화면의 인기있는 게시글 (좋아요 갯수로 가져옴)
 	public @ResponseBody List<BoardInfo> popularBoardInfo(@ModelAttribute BoardInfo boardinfo){
 		return bis.popularBoardInfo();
 	}
+	
+	
+	
+	
 }

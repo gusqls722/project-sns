@@ -7,7 +7,7 @@ import com.sns.sp.vo.ClubUser;
 
 public interface ClubUserDAO {
 
-	public Integer insertclubUser(ClubInfo ci);
+	public Integer insertclubUser(ClubInfo clubinfo);
 	
 	
 	

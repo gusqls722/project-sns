@@ -41,7 +41,8 @@
 	</select>
 	
 	<insert id="CREATECLUB" parameterType="clubInfo">
-		insert into club_info(clubname,clubimage,)
+		insert into club_info(clubname, clubdesc, clubUC, clubcredat, clubimage, userid)
+		values(#{clubname},#{clubdesc},1,DATE(now()),'image',#{userid})
 	</insert>
 	
 	<select id="JOINCLUB" resultType="clubInfo" parameterType="Integer">

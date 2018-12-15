@@ -38,11 +38,18 @@ public class ClubInfoController {
 		return cis.myClub(hs);
 	}
 	
+	@GetMapping("/clubinfos/recommend")	// (미완성) 메인화면의 추천클럽 
+	public @ResponseBody List<ClubInfo> recommendClubList(@ModelAttribute ClubInfo clubinfo){
+		return cis.selectClubInfoList();
+	}
+	
 	@PostMapping("/clubinfos/create")	// 클럽만들기
-	public @ResponseBody Map<String,String> createClub(@RequestBody ClubInfo clubinfo){
+	public @ResponseBody Map<String,String> createClub(@RequestBody ClubInfo clubinfo, HttpSession hs, HttpServletRequest req){
+		hs=req.getSession();
 		Map<String,String> rMap = new HashMap<String,String>();
-		cis.createClub(clubinfo, rMap);
+		cis.createClub(clubinfo, rMap, hs);
 		return rMap;
+
 	}
 	
 	@GetMapping("/clubinfos/club/{clubno}") // 클럽 들어가기
@@ -51,6 +58,12 @@ public class ClubInfoController {
 		Map<String,String> rMap = new HashMap<String,String>();
 		cis.JoinClub(clubno, hs, rMap);
 		hs.setAttribute("rMap", rMap);
-		return "club/clubmain" ;
+		return "/club/clubmain" ;
 	}
+	
+	@PostMapping()		// 클럽 가입하기
+	public String joinClub() {
+		return null;
+	}
+
 }
