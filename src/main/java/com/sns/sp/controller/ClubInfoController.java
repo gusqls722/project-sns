@@ -49,7 +49,6 @@ public class ClubInfoController {
 		Map<String,String> rMap = new HashMap<String,String>();
 		cis.createClub(clubinfo, rMap, hs);
 		return rMap;
-
 	}
 	
 	@GetMapping("/clubinfos/club/{clubno}") // 클럽 들어가기
