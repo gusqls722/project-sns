@@ -124,7 +124,7 @@
 		var cd = document.querySelector('#clubdesc').value;
 		
 		var conf = {
-				url:'/cis',
+				url:'/clubinfos/create',
 				method:'POST',
 				param : JSON.stringify({clubname:cn,clubdesc:cd}),
 				success : function(res){

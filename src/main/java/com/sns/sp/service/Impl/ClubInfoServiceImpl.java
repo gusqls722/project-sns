@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sns.sp.dao.ClubGradeDAO;
 import com.sns.sp.dao.ClubInfoDAO;
 import com.sns.sp.dao.ClubUserDAO;
 import com.sns.sp.service.ClubInfoService;
@@ -24,16 +25,19 @@ public class ClubInfoServiceImpl implements ClubInfoService{
 	@Autowired
 	private ClubUserDAO cudao;
 	
+	@Autowired
+	private ClubGradeDAO cgdao;
+	
 	@Override
-	public List<ClubInfo> setClubInfoList() {
+	public List<ClubInfo> selectClubInfoList() {
 		// TODO Auto-generated method stub
-		return cidao.setClubInfoList();
+		return cidao.selectClubInfoList();
 	}
 
 	@Override
-	public ClubInfo setClubInfoOne(int clubno) {
+	public ClubInfo selectClubInfoOne(int clubno) {
 		// TODO Auto-generated method stub
-		return cidao.setClubInfoOne(clubno);
+		return cidao.selectClubInfoOne(clubno);
 	}
 
 	@Override
@@ -57,6 +61,9 @@ public class ClubInfoServiceImpl implements ClubInfoService{
 	
 	@Override
 	public List<ClubInfo> myClub(HttpSession hs) {
+		if((UserInfo)hs.getAttribute("user")==null) {
+			return null;
+		}
 		UserInfo userinfo = (UserInfo) hs.getAttribute("user");
 		String userid = userinfo.getUserid();
 		List<Integer> affiliatedClub = cudao.affiliatedClub(userid);
@@ -68,21 +75,25 @@ public class ClubInfoServiceImpl implements ClubInfoService{
 	}
 
 	@Override
-	public Map<String, String> createClub(ClubInfo clubinfo, Map<String,String> rMap) {
+	public Map<String, String> createClub(ClubInfo clubinfo, Map<String,String> rMap, HttpSession hs) {
+		UserInfo userinfo = (UserInfo) hs.getAttribute("user");
+		clubinfo.setUserid(userinfo.getUserid());//userinfo.getUserid()
 		Integer cc= cidao.createClub(clubinfo);
 		if(cc==1) {
+			cudao.insertclubUser(clubinfo);
+			cgdao.createClubGrade(clubinfo);
 			rMap.put("res", "success");
 			rMap.put("msg", "클럽이 정상적으로 만들어졌습니다.");
 		}else {
 			rMap.put("res", "fail");
 			rMap.put("msg", "클럽생성실패");
-		}
+		} 
 		return rMap;
 	}
 
 	@Override
 	public HttpSession JoinClub(int clubno, HttpSession hs, Map<String,String> rMap) {	// 클럽들어가기
-		if(cidao.setClubInfoOne(clubno).getClubno()==null) {
+		if(cidao.selectClubInfoOne(clubno).getClubno()==null) {
 			rMap.put("res", "fail");
 			rMap.put("msg", "삭제되었거나 존재하지않는 클럽입니다.");
 			return hs;

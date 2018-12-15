@@ -16,8 +16,8 @@ public class ClubUserDAOImpl implements ClubUserDAO {
 	private SqlSession ss;
 	
 	@Override
-	public Integer insertclubUser(ClubInfo ci) {
-		return ss.insert("com.sns.sp.CLUBUSER.CREATECLUB",ci);
+	public Integer insertclubUser(ClubInfo clubinfo) {
+		return ss.insert("com.sns.sp.CLUBUSER.CREATECLUB",clubinfo);
 	}
 
 	@Override

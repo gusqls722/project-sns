@@ -11,4 +11,6 @@ public interface BoardInfoService {
 	public Integer insertboardInfo(BoardInfo bi);
 	public Integer updateboardInfo(BoardInfo bi);
 	public Integer deleteboardInfo(int boardno);
+	
+	public List<BoardInfo> popularBoardInfo();
 }

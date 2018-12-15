@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.sns.sp.CLUBUSER">
-		<insert id="CREATECLUB" parameterType="clubUser">
+		<insert id="CREATECLUB" parameterType="clubInfo">
 		insert into club_user(clubno,userid)
-		values((select count(clubno) from club_info),#{userid})
+		values((select clubno from club_info order by clubno desc limit 1),#{userid})
 		</insert>
 		
 		<select id="AFFILIATEDCLUB" resultType="Integer" parameterType="String">
