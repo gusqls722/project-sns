@@ -60,9 +60,6 @@ public class ClubInfoController {
 		return "/club/clubmain" ;
 	}
 	
-/*	@PostMapping()		// 클럽 가입하기
-	public String joinClub() {
-		return null;
-	}*/
+
 
 }
