@@ -40,4 +40,8 @@
 	<select id="POPULARBOARDINFO" resultType="boardInfo">
 		select * from board_info order by boardlikecount desc limit 2 
 	</select>
+	<insert id="CREATEBOARD" parameterType="boardinfo">
+		insert into board_info(boardtext,boardimage,boardlike,boardcommentcount,boardvisit,boardcredat,boardmoddat,userno,clubno)
+		values(#{boardtext},#{boardimage},#{boardlike},#{boardcommentcount},#{boardvisit},#{boardcredat},#{boardmoddat},#{userno},#{clubno})
+	</insert>
 </mapper>

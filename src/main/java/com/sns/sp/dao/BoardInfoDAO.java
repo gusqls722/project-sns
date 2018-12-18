@@ -14,5 +14,6 @@ public interface BoardInfoDAO {
 	
 	
 	public List<BoardInfo> popularBoardInfo();
+	public Integer createBaordInfo(BoardInfo boardinfo);
 }
 
