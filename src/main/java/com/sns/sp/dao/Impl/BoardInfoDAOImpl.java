@@ -46,4 +46,9 @@ public class BoardInfoDAOImpl implements BoardInfoDAO {
 		return ss.selectList("com.sns.sp.BOARDINFO.POPULARBOARDINFO");
 	}
 
+	@Override
+	public Integer createBaordInfo(BoardInfo boardinfo) {
+		return ss.insert("com.sns.sp.BOARDINFO.CREATEBOARD",boardinfo);
+	}
+
 }
