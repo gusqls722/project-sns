@@ -20,6 +20,9 @@ var AjaxUtil = function(){
 				if(xhr.status=="200"){
 					success(xhr.responseText);
 				}else{
+					if(conf.error){
+						conf.error(xhr.responseText);
+					}
 					try{
 						var res = JSON.parse(xhr.responseText);
 						alert(res.errorMsg);
@@ -27,7 +30,6 @@ var AjaxUtil = function(){
 					}catch(e){
 						
 					}
-					error(xhr.responseText);
 				}
 			}
 		}

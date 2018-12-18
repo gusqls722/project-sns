@@ -14,6 +14,14 @@ public class UserInfo {
 	private String usergender;
 	private String usercategory;
 	private String userdesc;
+	private ClubInfo clubInfo;
+	
+	public ClubInfo getClubInfo() {
+		return clubInfo;
+	}
+	public void setClubInfo(ClubInfo clubInfo) {
+		this.clubInfo = clubInfo;
+	}
 	public Integer getUserno() {
 		return userno;
 	}

@@ -11,4 +11,13 @@
 		<select id="AFFILIATEDCLUB" resultType="Integer" parameterType="String">
 			select clubno from club_user where userid=#{userid}
 		</select>
+		
+		<insert id="JOINCLUB" parameterType="userInfo">
+			insert into club_user(userid,clubno)
+			values(#{userid},#{clubInfo.clubno})
+		</insert>
+		
+		<select id="DUPLICATIONJOIN" resultType="Integer" parameterType="userInfo">
+			select count(*) from club_user where userid=#{userid} and clubno=#{clubInfo.clubno}
+		</select>
 </mapper>
