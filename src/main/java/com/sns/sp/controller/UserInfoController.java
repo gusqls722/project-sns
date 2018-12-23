@@ -95,7 +95,7 @@ public class UserInfoController {
 		session = req.getSession(false);
 		Map<String,String> rMap = new HashMap<String,String>();
 		us.sessioncheck(rMap,session);
-		return rMap;
+		return rMap; 
 	}
 	
 	@GetMapping(value="/uis/emailcheck")
