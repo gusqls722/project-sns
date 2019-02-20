@@ -1,108 +1,156 @@
 @charset "UTF-8";
-*{margin:0 auto; padding:0px;}
-body{
-  background-color:gray;
+
+* {
+	margin: 0 auto;
+	padding: 0px;
 }
 
-#left #all {width:400px; height:100%; margin-top:11%; margin-bottom:11%; color:white; text-align:center;}
-#image { width:400px; height:66%;}
-#left,#right { float:left;}
-#right{width:550px; height:800px; background-color:white;}
-#left {width:550px; height:800px; background-color:#6AA3AC;}
-.layer{ width:1100px; margin-left:auto; margin-right:auto; } 
-.all{background-color:green; width:1100px; height:800px; margin-top:15%;
-margin-bottom:15%;}
-
-
-
-#rightText{
-  color:gray;
-  text-align:center;
-  width:300px;
-  height:100%; margin-top:8%; margin-bottom:11%;
-}
-#logo{
-  margin-bottom:110px;
+body {
+	background-color: gray;
 }
 
-#rightText>p{
-  text-align:left;
-}
-p>input{
-  margin-top:3px;
-  margin-bottom:11px;
-  border:none;
-  width:300px;
-  height:35px;
-  border-bottom:solid 2px #A6A6A6;
-  font-size:19px;
-}
-#title{
-  margin-bottom:50px;
-}
-#forget{
-  text-align:right;
-}
-#forget>a{
-  color:#50AF49;
-  font-size:13px;
-  text-decoration:none;
-}
-#SignIn,#REGISTER{
-  border-radius:20px;
-  background-color:darkgray;
-  color:white;
-  width:200px;
-  height:40px;
-  font-size:20px;
+#left #all {
+	width: 400px;
+	height: 100%;
+	margin-top: 11%;
+	margin-bottom: 11%;
+	color: white;
+	text-align: center;
 }
 
-
-.hrAll{
-  margin-top:60px;
-}
-.hr{
-  display:inline-block;
-  width:100px;
+#image {
+	width: 400px;
+	height: 66%;
 }
 
-.register{
-  margin-top:30px;
-  font-size:15px;
+#left, #right {
+	float: left;
 }
 
-#registerHref{
-  color:#50AF49;
-  text-decoration:none;
-  border-bottom:solid 1px gray;
-  cursor:pointer;
-}
-#gender{
-	height:25px;
-}
-#NotCorrespond, #Correspond, #Notpwdlength, #pwdlength{
-	font-size:15px;
-	color:red;
-	display:none;
-	float:right;
-}
-#Correspond{
-	color:green;
+#right {
+	width: 550px;
+	height: 800px;
+	background-color: white;
 }
 
-#pwdlength{
-	color:green;
+#left {
+	width: 550px;
+	height: 800px;
+	background-color: #6AA3AC;
 }
 
-#idcheckbtn{
-	display:none;
-	float:right;
-	width:75px;
-	border-radius:10px;
-	padding:1px;
-	text-align:center;
-	font-size:15px;
-	background-color:darkgray;
- 	color:white; 
+.layer {
+	width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
+.all {
+	background-color: green;
+	width: 1100px;
+	height: 800px;
+	margin-top: 15%;
+	margin-bottom: 15%;
+}
+
+#rightText {
+	color: gray;
+	text-align: center;
+	width: 300px;
+	height: 100%;
+	margin-top: 8%;
+	margin-bottom: 11%;
+}
+
+#logo {
+	margin-bottom: 110px;
+}
+
+#rightText>p {
+	text-align: left;
+}
+
+p>input {
+	margin-top: 3px;
+	margin-bottom: 11px;
+	border: none;
+	width: 300px;
+	height: 35px;
+	border-bottom: solid 2px #A6A6A6;
+	font-size: 19px;
+}
+
+#title {
+	margin-bottom: 50px;
+}
+
+#forget {
+	text-align: right;
+}
+
+#forget>a {
+	color: #50AF49;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+#SignIn, #REGISTER {
+	border-radius: 20px;
+	background-color: darkgray;
+	color: white;
+	width: 200px;
+	height: 40px;
+	font-size: 20px;
+}
+
+.hrAll {
+	margin-top: 60px;
+}
+
+.hr {
+	display: inline-block;
+	width: 100px;
+}
+
+.register {
+	margin-top: 30px;
+	font-size: 15px;
+}
+
+#registerHref {
+	color: #50AF49;
+	text-decoration: none;
+	border-bottom: solid 1px gray;
+	cursor: pointer;
+}
+
+#gender {
+	height: 25px;
+}
+
+#NotCorrespond, #Correspond, #Notpwdlength, #pwdlength {
+	font-size: 15px;
+	color: red;
+	display: none;
+	float: right;
+}
+
+#Correspond {
+	color: green;
+}
+
+#pwdlength {
+	color: green;
+}
+
+#idcheckbtn {
+	display: none;
+	float: right;
+	width: 75px;
+	border-radius: 10px;
+	padding: 1px;
+	text-align: center;
+	font-size: 15px;
+	background-color: darkgray;
+	color: white;
+}

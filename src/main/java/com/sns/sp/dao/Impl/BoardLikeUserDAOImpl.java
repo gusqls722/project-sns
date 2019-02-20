@@ -14,7 +14,7 @@ public class BoardLikeUserDAOImpl implements BoardLikeUserDAO {
 
 	@Autowired
 	private SqlSession ss;
-	
+
 	@Override
 	public List<BoardLikeUser> selectboardLikeUserList() {
 		return ss.selectList("com.sns.sp.BOARDLIKEUSER.BOARDLIKEUSERLIST");
@@ -22,17 +22,17 @@ public class BoardLikeUserDAOImpl implements BoardLikeUserDAO {
 
 	@Override
 	public Integer insertboardLikeUser(BoardLikeUser blu) {
-		return ss.insert("com.sns.sp.BOARDLIKEUSER.insertBOARDLIKEUSER",blu);
+		return ss.insert("com.sns.sp.BOARDLIKEUSER.insertBOARDLIKEUSER", blu);
 	}
 
 	@Override
 	public Integer updateboardLikeUser(BoardLikeUser blu) {
-		return ss.update("com.sns.sp.BOARDLIKEUSER.updateBOARDLIKEUSER",blu);
+		return ss.update("com.sns.sp.BOARDLIKEUSER.updateBOARDLIKEUSER", blu);
 	}
 
 	@Override
 	public Integer deleteboardLikeUser(int boardno) {
-		return ss.delete("com.sns.sp.BOARDLIKEUSER.deleteBOARDLIKEUSER",boardno);
+		return ss.delete("com.sns.sp.BOARDLIKEUSER.deleteBOARDLIKEUSER", boardno);
 	}
 
 }

@@ -15,7 +15,7 @@ public class BoardLikeUserServiceImpl implements BoardLikeUserService {
 
 	@Autowired
 	private BoardLikeUserDAO bludao;
-	
+
 	@Override
 	public List<BoardLikeUser> selectboardLikeUserList() {
 		return bludao.selectboardLikeUserList();
@@ -37,4 +37,3 @@ public class BoardLikeUserServiceImpl implements BoardLikeUserService {
 	}
 
 }
-

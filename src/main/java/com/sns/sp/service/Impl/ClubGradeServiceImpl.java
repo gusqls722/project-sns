@@ -8,10 +8,9 @@ import com.sns.sp.service.ClubGradeService;
 import com.sns.sp.vo.ClubInfo;
 
 @Service
-public class ClubGradeServiceImpl implements ClubGradeService{
+public class ClubGradeServiceImpl implements ClubGradeService {
 
 	@Autowired
 	private ClubGradeDAO cgdao;
-	
-	
+
 }

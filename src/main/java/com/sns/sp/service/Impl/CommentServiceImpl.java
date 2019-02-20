@@ -15,7 +15,7 @@ public class CommentServiceImpl implements CommentService {
 
 	@Autowired
 	private CommentDAO cdao;
-	
+
 	@Override
 	public List<Comment> selectcommentList() {
 		return cdao.selectcommentList();

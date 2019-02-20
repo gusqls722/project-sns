@@ -14,7 +14,7 @@ public class ChatInfoServiceImpl implements ChatInfoService {
 
 	@Autowired
 	private ChatInfoDAO cidao;
-	
+
 	@Override
 	public List<ChatInfo> selectchatInfoList() {
 		return cidao.selectchatInfoList();

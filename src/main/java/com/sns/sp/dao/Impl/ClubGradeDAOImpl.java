@@ -12,10 +12,10 @@ public class ClubGradeDAOImpl implements ClubGradeDAO {
 
 	@Autowired
 	private SqlSession ss;
-	
+
 	@Override
 	public Integer createClubGrade(ClubInfo clubinfo) {
-		return ss.insert("com.sns.sp.CLUBGRADE.CREATECLUBGRADE",clubinfo);
+		return ss.insert("com.sns.sp.CLUBGRADE.CREATECLUBGRADE", clubinfo);
 	}
 
 }

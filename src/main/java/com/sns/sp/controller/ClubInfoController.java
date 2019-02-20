@@ -1,7 +1,5 @@
 package com.sns.sp.controller;
 
-import static org.hamcrest.CoreMatchers.nullValue;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,40 +24,40 @@ public class ClubInfoController {
 
 	@Autowired
 	private ClubInfoService cis;
-	
+
 	@GetMapping("/clubinfos")
-	public @ResponseBody List<ClubInfo> getClubInfoList(@ModelAttribute ClubInfo clubinfo){
+	public @ResponseBody List<ClubInfo> getClubInfoList(@ModelAttribute ClubInfo clubinfo) {
 		return cis.selectClubInfoList();
 	}
-	
-	@GetMapping("/clubinfos/main/member")	// (메인페이지) 내가 가입한 클럽 리스트
-	public @ResponseBody List<ClubInfo> myClubList(@ModelAttribute ClubInfo clubinfo, HttpSession hs, HttpServletRequest req){
+
+	@GetMapping("/clubinfos/main/member") // (메인페이지) 내가 가입한 클럽 리스트
+	public @ResponseBody List<ClubInfo> myClubList(@ModelAttribute ClubInfo clubinfo, HttpSession hs,
+			HttpServletRequest req) {
 		hs = req.getSession();
 		return cis.myClub(hs);
 	}
-	
-	@GetMapping("/clubinfos/recommend")	// (미완성) 메인화면의 추천클럽 
-	public @ResponseBody List<ClubInfo> recommendClubList(@ModelAttribute ClubInfo clubinfo){
+
+	@GetMapping("/clubinfos/recommend") // (미완성) 메인화면의 추천클럽
+	public @ResponseBody List<ClubInfo> recommendClubList(@ModelAttribute ClubInfo clubinfo) {
 		return cis.selectClubInfoList();
 	}
-	
-	@PostMapping("/clubinfos/create")	// 클럽만들기
-	public @ResponseBody Map<String,String> createClub(@RequestBody ClubInfo clubinfo, HttpSession hs, HttpServletRequest req){
-		hs=req.getSession();
-		Map<String,String> rMap = new HashMap<String,String>();
+
+	@PostMapping("/clubinfos/create") // 클럽만들기
+	public @ResponseBody Map<String, String> createClub(@RequestBody ClubInfo clubinfo, HttpSession hs,
+			HttpServletRequest req) {
+		hs = req.getSession();
+		Map<String, String> rMap = new HashMap<String, String>();
 		cis.createClub(clubinfo, rMap, hs);
 		return rMap;
 	}
-	
+
 	@GetMapping("/clubinfos/club/{clubno}") // 클럽 들어가기
-	public String joinClub(@PathVariable int clubno, HttpSession hs, HttpServletRequest req){
-		hs=req.getSession();
-		Map<String,String> rMap = new HashMap<String,String>();
+	public String joinClub(@PathVariable int clubno, HttpSession hs, HttpServletRequest req) {
+		hs = req.getSession();
+		Map<String, String> rMap = new HashMap<String, String>();
 		cis.JoinClub(clubno, hs, rMap);
 		hs.setAttribute("rMap", rMap);
-		return "/club/clubmain" ;
+		return "/club/clubmain";
 	}
-	
-
 
 }

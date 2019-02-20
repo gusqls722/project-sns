@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="rootPath" value="${pageContext.request.contextPath}"/>
-<c:set var="resPath" value="${rootPath}/resources"/>
-<c:set var="lrPath" value="${resPath}/login-register"/>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="rootPath" value="${pageContext.request.contextPath}" />
+<c:set var="resPath" value="${rootPath}/resources" />
+<c:set var="lrPath" value="${resPath}/login-register" />
 
 <script src="${resPath}/js/AjaxUtil.js"></script>
 <script>

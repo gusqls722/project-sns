@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class URIController {
 
 	private static final Logger logger = LoggerFactory.getLogger(URIController.class);
-	@RequestMapping(value="/uri/**", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/uri/**", method = RequestMethod.GET)
 	public String goPage(HttpServletRequest req) {
 		String rootPath = req.getContextPath();
-		logger.debug("rootPath=>{}",rootPath);
-		return req.getRequestURI().replace(rootPath+"/uri","");
-		}
+		logger.debug("rootPath=>{}", rootPath);
+		return req.getRequestURI().replace(rootPath + "/uri", "");
+	}
 }

@@ -19,24 +19,23 @@ public class BoardInfoController {
 
 	@Autowired
 	private BoardInfoService bis;
-	
+
 	@GetMapping("/boardinfos")
-	public @ResponseBody List<BoardInfo> selectBoardInfo(@ModelAttribute BoardInfo boardinfo){
+	public @ResponseBody List<BoardInfo> selectBoardInfo(@ModelAttribute BoardInfo boardinfo) {
 		return bis.selectboardInfoList();
 	}
-	
-	
-	@GetMapping("/boardinfos/main/popular")			// 메인화면의 인기있는 게시글 (좋아요 갯수로 가져옴)
-	public @ResponseBody List<BoardInfo> popularBoardInfo(@ModelAttribute BoardInfo boardinfo){
+
+	@GetMapping("/boardinfos/main/popular") // 메인화면의 인기있는 게시글 (좋아요 갯수로 가져옴)
+	public @ResponseBody List<BoardInfo> popularBoardInfo(@ModelAttribute BoardInfo boardinfo) {
 		return bis.popularBoardInfo();
 	}
-	
-	@GetMapping(value="/boardinfos/{boardno}")
+
+	@GetMapping(value = "/boardinfos/{boardno}")
 	public @ResponseBody BoardInfo getboardInfoOne(@PathVariable int boardno) {
 		return bis.selectboardInfoOne(boardno);
 	}
-	
-	@PostMapping(value="/boardinfos")
+
+	@PostMapping(value = "/boardinfos")
 	public @ResponseBody Integer insertboardInfo(@RequestBody BoardInfo bi) {
 		return bis.insertboardInfo(bi);
 	}

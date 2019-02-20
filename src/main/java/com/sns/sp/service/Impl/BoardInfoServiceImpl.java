@@ -10,10 +10,11 @@ import com.sns.sp.service.BoardInfoService;
 import com.sns.sp.vo.BoardInfo;
 
 @Service
-public class BoardInfoServiceImpl implements BoardInfoService{
+public class BoardInfoServiceImpl implements BoardInfoService {
 
 	@Autowired
 	private BoardInfoDAO bdao;
+
 	@Override
 	public List<BoardInfo> selectboardInfoList() {
 		return bdao.selectboardInfoList();
@@ -38,8 +39,6 @@ public class BoardInfoServiceImpl implements BoardInfoService{
 	public Integer deleteboardInfo(int boardno) {
 		return bdao.deleteboardInfo(boardno);
 	}
-	
-	
 
 	@Override
 	public List<BoardInfo> popularBoardInfo() {

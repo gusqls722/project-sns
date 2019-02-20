@@ -20,4 +20,8 @@
 		<select id="DUPLICATIONJOIN" resultType="Integer" parameterType="userInfo">
 			select count(*) from club_user where userid=#{userid} and clubno=#{clubInfo.clubno}
 		</select>
+		
+		<delete id="DELETECLUB" parameterType="userInfo">
+			delete from club_user where userid=#{userid} and clubno=#{clubInfo.clubno}
+		</delete>
 </mapper>

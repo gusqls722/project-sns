@@ -38,12 +38,10 @@ public class MessageSender {
 		return key.toString();
 	}
 
-
-
 	public static String sendmail(String email) {
-		
-		String keyCode="";
-		
+
+		String keyCode = "";
+
 		try {
 			keyCode = createKey();
 		} catch (Exception e1) {

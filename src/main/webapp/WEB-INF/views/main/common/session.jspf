@@ -1,25 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <script>
-function logout(){
-	 location = '/uis/logout';
-	 alert('로그아웃 되셨습니다.');
+	function logout() {
+		location = '/uis/logout';
+		alert('로그아웃 되셨습니다.');
 
-}
-function userInfo(){
-	 location = '/uri/main/userInfo'
-}
+	}
+	function userInfo() {
+		location = '/uri/main/userInfo'
+	}
 
-var conf = {		// 세션확인
-	    url : '/uis/session',
-	    method : 'GET',
-	    success : function(res){
-	    	res = JSON.parse(res);
-	    	if(res.value==0){
-	    		alert(res.msg);
-	    		location='/uri/login/login-register';
-	    	}
-	  	}
-}
-au.send(conf);
+	var conf = { // 세션확인
+		url : '/uis/session',
+		method : 'GET',
+		success : function(res) {
+			res = JSON.parse(res);
+			if (res.value == 0) {
+				alert(res.msg);
+				location = '/uri/login/login-register';
+			}
+		}
+	}
+	au.send(conf);
 </script>

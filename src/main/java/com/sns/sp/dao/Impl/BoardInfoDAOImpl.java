@@ -14,6 +14,7 @@ public class BoardInfoDAOImpl implements BoardInfoDAO {
 
 	@Autowired
 	private SqlSession ss;
+
 	@Override
 	public List<BoardInfo> selectboardInfoList() {
 		return ss.selectList("com.sns.sp.BOARDINFO.BOARDINFOLIST");
@@ -21,25 +22,23 @@ public class BoardInfoDAOImpl implements BoardInfoDAO {
 
 	@Override
 	public BoardInfo selectboardInfoOne(int boardno) {
-		return ss.selectOne("com.sns.sp.BOARDINFO.BOARDINFOONE",boardno);
+		return ss.selectOne("com.sns.sp.BOARDINFO.BOARDINFOONE", boardno);
 	}
 
 	@Override
 	public Integer insertboardInfo(BoardInfo bi) {
-		return ss.insert("com.sns.sp.BOARDINFO.insertBOARDINFO",bi);
+		return ss.insert("com.sns.sp.BOARDINFO.insertBOARDINFO", bi);
 	}
 
 	@Override
 	public Integer updateboardInfo(BoardInfo bi) {
-		return ss.update("com.sns.sp.BOARDINFO.updateBOARDINFO",bi);
+		return ss.update("com.sns.sp.BOARDINFO.updateBOARDINFO", bi);
 	}
 
 	@Override
 	public Integer deleteboardInfo(int boardno) {
-		return ss.delete("com.sns.sp.BOARDINFO.deleteBOARDINFO",boardno);
+		return ss.delete("com.sns.sp.BOARDINFO.deleteBOARDINFO", boardno);
 	}
-	
-	
 
 	@Override
 	public List<BoardInfo> popularBoardInfo() {
@@ -48,7 +47,7 @@ public class BoardInfoDAOImpl implements BoardInfoDAO {
 
 	@Override
 	public Integer createBaordInfo(BoardInfo boardinfo) {
-		return ss.insert("com.sns.sp.BOARDINFO.CREATEBOARD",boardinfo);
+		return ss.insert("com.sns.sp.BOARDINFO.CREATEBOARD", boardinfo);
 	}
 
 }
